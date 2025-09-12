@@ -1,0 +1,61 @@
+/* --- Interactive Map Component --- */
+
+/* This contains the info-box and the SVG */
+.interactive-map-container {
+  display: block;
+}
+
+/* SVG Map Styling */
+.interactive-map-container svg {
+  flex: 2;
+  min-width: 300px;
+  max-height: 900px; /* Changed from 700px to 500px */
+}
+
+/* The info box that displays location details */
+.info-box {
+  background-color: #0a1835;
+  color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 4px;
+  margin-bottom: 2rem; /* Adds space when it stacks on mobile */
+  max-width: 300px;
+}
+
+/* --- Pin Interactivity --- */
+
+/* This targets each pin's group (<g> tag) */
+g.map-pin {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* The pin icon shape (the <path>) */
+.pin-icon {
+  fill: #0a1835; /* This is the DEFAULT dark blue color */
+  transition: fill 0.3s ease;
+}
+
+/* The background circle shape */
+.pin-background {
+  fill: #2f73b9;   /* This is the light blue hover color... */
+  opacity: 0;     /* ...but it's INVISIBLE by default. */
+  transform: scale(0.8);
+  transform-origin: 50% 50%;
+  transition: all 0.3s ease;
+}
+
+
+/* --- HOVER & ACTIVE (SELECTED) STATES --- */
+
+/* When a pin group is hovered over OR has the 'active' class... */
+g.map-pin:hover .pin-background,
+g.map-pin.active .pin-background {
+  opacity: 0.6;          /* ...make the background circle VISIBLE. */
+  transform: scale(1);
+}
+
+g.map-pin:hover .pin-icon,
+g.map-pin.active .pin-icon {
+  fill: #ffffff;         /* ...make the pin icon WHITE. */
+}
