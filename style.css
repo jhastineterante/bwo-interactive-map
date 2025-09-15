@@ -1,61 +1,225 @@
-/* --- Interactive Map Component --- */
+/* --- Global & Font Styles --- */
+body {
+    font-family: "Aktiv Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: #f8f9fa;
+}
 
-/* This contains the info-box and the SVG */
-.interactive-map-container {
-  display: block;
+/* --- Main Component Structure --- */
+.page-container {
+    max-width: 100%;
+    margin: auto;
+    padding: 5%;
+}
+
+.map-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+}
+
+.left-column {
+    flex: 1.5; /* Takes up ~60% of the space */
+    min-width: 320px;
+}
+
+.right-column {
+    flex: 1; /* Takes up ~40% of the space */
+    min-width: 320px;
+}
+
+h1.main-heading {
+    font-family: "Adobe Garamond Pro", serif;
+    font-size: 7rem;
+    font-weight: 700;
+    color: #0a1835;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+} 
+
+/* Info Box Styling */
+.info-box {
+    margin-top: 5%;
+    background-color: #0a1835;
+    color: #ffffff;
+    padding: 3.5rem;
+    border-radius: 4px;
+    max-width: 450px; 
+}
+
+.office-name {
+    font-family: "Adobe Garamond Pro", serif;
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+    text-align: center;
+}
+
+.office-group, .office-address, .office-phone {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+    text-align: center;
+}
+.office-phone {
+    font-weight: 700;
+}
+ 
+/* Office Description Styling */
+.office-description {
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-top: 1.5rem;
+    max-width: 500px; 
+    text-align: center;
 }
 
 /* SVG Map Styling */
-.interactive-map-container svg {
-  flex: 2;
-  min-width: 300px;
-  max-height: 900px; /* Changed from 700px to 500px */
-}
-
-/* The info box that displays location details */
-.info-box {
-  background-color: #0a1835;
-  color: #ffffff;
-  padding: 2.5rem;
-  border-radius: 4px;
-  margin-bottom: 2rem; /* Adds space when it stacks on mobile */
-  max-width: 300px;
+.map-container svg {
+    width: 70%;
+    height: auto;
 }
 
 /* --- Pin Interactivity --- */
-
-/* This targets each pin's group (<g> tag) */
 g.map-pin {
-  cursor: pointer;
-  transition: all 0.3s ease;
+    cursor: pointer;
 }
-
-/* The pin icon shape (the <path>) */
 .pin-icon {
-  fill: #0a1835; /* This is the DEFAULT dark blue color */
-  transition: fill 0.3s ease;
+    fill: #0a1835;
+    transition: fill 0.3s ease-in-out;
 }
-
-/* The background circle shape */
 .pin-background {
-  fill: #2f73b9;   /* This is the light blue hover color... */
-  opacity: 0;     /* ...but it's INVISIBLE by default. */
-  transform: scale(0.8);
-  transform-origin: 50% 50%;
-  transition: all 0.3s ease;
+    fill: #2f73b9;
+    opacity: 0;
+    transform: scale(0.8);
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease-in-out;
 }
-
-
-/* --- HOVER & ACTIVE (SELECTED) STATES --- */
-
-/* When a pin group is hovered over OR has the 'active' class... */
 g.map-pin:hover .pin-background,
 g.map-pin.active .pin-background {
-  opacity: 0.6;          /* ...make the background circle VISIBLE. */
-  transform: scale(1);
+    opacity: 0.6;
+    transform: scale(1);
 }
-
 g.map-pin:hover .pin-icon,
 g.map-pin.active .pin-icon {
-  fill: #ffffff;         /* ...make the pin icon WHITE. */
+    fill: #ffffff;
+}
+
+/* --- Banner & Agent Section Styles --- */
+.banner {
+    background-color: #006FBA;
+    color: #ffffff;
+    font-weight: 300;
+    text-align: center;
+    padding: 5%;
+    margin-bottom: 3rem;
+    border-radius: 4px;
+}
+
+.banner h2 {
+    font-family: "Adobe Garamond Pro", serif;
+    font-size: 4rem; 
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+}
+
+.agents-section {
+    text-align: center;
+    min-height: 400px;
+}
+
+.office-agents-grid {
+    display: grid;
+    gap: 2.5rem 2rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* UPDATED RULE TO FIX SQUARESPACE CONFLICT */
+.full-width-divider {
+    grid-column: 1 / -1 !important; /* This forces the divider to span all columns */
+    width: 100%;
+    border: none;
+    border-top: 1px solid #006FBA;
+    margin: 1rem 0;
+}
+
+.agent-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.agent-headshot {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #0a1835;
+    margin-bottom: 1rem;
+}
+.agent-name {
+    font-family: "Adobe Garamond Pro", serif;
+    font-weight: 700;
+    font-size: 1.25em;
+    margin: 0;
+    text-transform: uppercase;
+    color: #0a1835;
+}
+.agent-title {
+    font-style: italic;
+    margin: 0.25rem 0;
+    color: #555;
+}
+.agent-divider {
+    width: 90px;
+    border: none;
+    border-top: 2px solid #2f73b9;
+    margin: 0.75rem 0;
+}
+.agent-agency {
+    font-weight: 700;
+    margin: 0.5rem 0;
+    color: #0a1835;
+}
+.agent-email, .agent-phone {
+    font-size: 0.9em;
+    margin: 0.1rem 0;
+    color: #333;
+    text-decoration: none;
+}
+.agent-email a, .agent-phone a {
+    color: inherit;
+    text-decoration: none;
+}
+.agent-email a:hover {
+    text-decoration: underline;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 992px) {
+    .office-agents-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    h1.main-heading {
+        font-size: 4rem; /* Smaller heading on tablets */
+    }
+    .banner h2 {
+        font-size: 1.75rem; /* Tablet-specific font size */
+    }
+}
+@media (max-width: 600px) {
+    .office-agents-grid {
+        grid-template-columns: 1fr;
+    }
+    h1.main-heading {
+        font-size: 4rem; /* Smaller heading on phones */
+    }
+     .banner h2 {
+        font-size: 1.5rem; /* Mobile-specific font size */
+    }
 }
