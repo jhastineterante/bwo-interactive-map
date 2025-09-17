@@ -107,10 +107,10 @@ function renderAgentsForLocation(locationId) {
         tiersWithAgents.push({ tierClass: 'tier-2', agents: location.agents.tier2 });
     }
     if (location.agents.tier3 && location.agents.tier3.length > 0) {
-        tiersWithAgents.push({ tierClass: 'tier-3-4', agents: location.agents.tier3 });
+        tiersWithAgents.push({ tierClass: 'tier-3', agents: location.agents.tier3 });
     }
     if (location.agents.tier4 && location.agents.tier4.length > 0) {
-        tiersWithAgents.push({ tierClass: 'tier-3-4', agents: location.agents.tier4 });
+        tiersWithAgents.push({ tierClass: 'tier-4', agents: location.agents.tier4 });
     }
 
     tiersWithAgents.forEach((tierData, index) => {
