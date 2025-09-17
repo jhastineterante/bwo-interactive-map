@@ -21,12 +21,12 @@ body {
 }
 
 .left-column {
-    flex: 1.5; /* Takes up ~60% of the space */
+    flex: 1.5; /* Takes up ~60% */
     min-width: 320px;
 }
 
 .right-column {
-    flex: 1; /* Takes up ~40% of the space */
+    flex: 1; /* Takes up ~40% */
     min-width: 320px;
 }
 
@@ -59,8 +59,8 @@ h1.main-heading {
 }
 
 .office-group, .office-address, .office-phone {
-    font-size: 1.5rem;
-    line-height: 1.6;
+    font-size: 2rem;
+    line-height: 1.5;
     margin: 0.5rem 0;
     text-align: center;
 }
@@ -72,15 +72,16 @@ h1.main-heading {
 .office-description {
     padding: 1.5rem;
     font-size: 1.5rem;
-    line-height: 1.5;
+    line-height: 1.7;
     margin-top: 1.5rem;
     max-width: 500px; 
+    border-radius: 4px;
     text-align: center;
 }
 
 /* SVG Map Styling */
 .map-container svg {
-    width: 70%;
+    width: 90%;
     height: auto;
 }
 
@@ -116,14 +117,35 @@ g.map-pin.active .pin-icon {
     color: #ffffff;
     font-weight: 300;
     text-align: center;
-    padding: 5%;
+    padding: 4rem;
     margin-bottom: 3rem;
     border-radius: 4px;
+    
+    /* Full-width styling for desktop */
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+    border-radius: 0;
+    
+    /* Mobile fixes */
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .banner {
+        padding: 2rem 1rem; /* Reduce padding on mobile */
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        width: 100vw;
+    }
 }
 
 .banner h2 {
     font-family: "Adobe Garamond Pro", serif;
-    font-size: 4rem; 
+    font-size: 2.5rem; 
     margin: 0;
     padding: 0;
     font-weight: 500;
@@ -133,19 +155,47 @@ g.map-pin.active .pin-icon {
     text-align: center;
     min-height: 400px;
 }
+/* Hide the <br> tag on mobile */
+@media (max-width: 768px) {
+    .banner h2 br {
+        display: none;
+    }
+    
+    .banner h2 {
+        font-size: 1.5rem; /* Smaller text on mobile */
+    }
+}
 
+/* Show the <br> tag on desktop */
+@media (min-width: 769px) {
+    .banner h2 br {
+        display: block;
+    }
+}
+
+/* Grid styles for different tiers */
 .office-agents-grid {
     display: grid;
-    gap: 2.5rem 2rem;
+    gap: 3.5rem 2rem; /* Increased gap for better spacing */
+    margin: 2rem 0;
+}
+
+.tier-1 {
     grid-template-columns: repeat(3, 1fr);
 }
 
-/* UPDATED RULE TO FIX SQUARESPACE CONFLICT */
-.full-width-divider {
-    grid-column: 1 / -1 !important; /* This forces the divider to span all columns */
+.tier-2 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.tier-3-4 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+#agents-grid-container .full-width-divider {
     width: 100%;
-    border: none;
-    border-top: 1px solid #006FBA;
+    border: none !important;
+    border-top: 2px solid #006FBA !important;
     margin: 1rem 0;
 }
 
@@ -154,14 +204,29 @@ g.map-pin.active .pin-icon {
     flex-direction: column;
     align-items: center;
 }
-.agent-headshot {
+
+/* Different headshot sizes for tiers */
+.tier-1 .agent-headshot {
+    width: 220px;
+    height: 220px;
+}
+.tier-2 .agent-headshot {
     width: 180px;
     height: 180px;
+}
+.tier-3-4 .agent-headshot {
+    width: 150px;
+    height: 150px;
+}
+
+.agent-headshot {
     border-radius: 50%;
     object-fit: cover;
     background-color: #0a1835;
     margin-bottom: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
+
 .agent-name {
     font-family: "Adobe Garamond Pro", serif;
     font-weight: 700;
@@ -175,10 +240,10 @@ g.map-pin.active .pin-icon {
     margin: 0.25rem 0;
     color: #555;
 }
-.agent-divider {
-    width: 90px;
+.agent-profile .agent-divider {
+    width: 80px;
     border: none;
-    border-top: 2px solid #2f73b9;
+    border-top: 5px solid #2f73b9 !important; /* This forces the color to override Squarespace's default */
     margin: 0.75rem 0;
 }
 .agent-agency {
@@ -190,9 +255,8 @@ g.map-pin.active .pin-icon {
     font-size: 0.9em;
     margin: 0.1rem 0;
     color: #333;
-    text-decoration: none;
 }
-.agent-email a, .agent-phone a {
+.agent-email a {
     color: inherit;
     text-decoration: none;
 }
@@ -201,25 +265,37 @@ g.map-pin.active .pin-icon {
 }
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 1200px) {
+    .tier-3-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 @media (max-width: 992px) {
-    .office-agents-grid {
+    .tier-1, .tier-2 {
         grid-template-columns: repeat(2, 1fr);
     }
+    .tier-3-4 {
+        grid-template-columns: repeat(3, 1fr);
+    }
     h1.main-heading {
-        font-size: 4rem; /* Smaller heading on tablets */
+        font-size: 4rem;
     }
     .banner h2 {
-        font-size: 1.75rem; /* Tablet-specific font size */
+        font-size: 2rem;
     }
 }
 @media (max-width: 600px) {
-    .office-agents-grid {
-        grid-template-columns: 1fr;
+    .tier-1, .tier-2 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .tier-3-4 {
+        grid-template-columns: repeat(2, 1fr);
     }
     h1.main-heading {
-        font-size: 4rem; /* Smaller heading on phones */
+        font-size: 3rem;
     }
      .banner h2 {
-        font-size: 1.5rem; /* Mobile-specific font size */
+        font-size: 1.5rem;
     }
 }
