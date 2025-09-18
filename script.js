@@ -6,6 +6,7 @@ const officeData = {
         group: "BWO Insurance Group, LLC",
         address: "7925 S. 6th St.<br>Oak Creek, WI 53154",
         phone: "(414) 768-8100",
+        website: "", // No website for this location
         description: "Since 1983, BWO Insurance has been committed to providing our clients with the highest level of professional care. We pride ourselves on building lasting relationships built on trust and respect.",
         agents: {
             // TIER 1: Owners (3 columns, large headshots)
@@ -68,7 +69,69 @@ const officeData = {
         agents: {
             tier1: [], tier2: [], tier3: [], tier4: []
         }
+    },
+        "milwaukee": {
+        name: "MILWAUKEE",
+        group: "See Insurance Agency LLC",
+        address: "7817 W Brown Deer Road<br>Milwaukee, WI 53223",
+        phone: "(414) 355-5433",
+        website: "https://www.daseeins.com/",
+        description: "A placeholder description for the See Insurance Agency in Milwaukee. Providing excellent service to the local community.",
+        agents: {
+            tier1: [
+                { name: "David See", title: "Agency Owner", agency: "See Insurance Agency LLC", email: "david@daseeins.com", phone: "(414) 355-5433", photo: "DS" }
+            ],
+            tier2: [
+                { name: "Erica Tucker", title: "Agent", agency: "See Insurance Agency LLC", email: "", phone: "(414) 355-5433", photo: "ET" },
+                { name: "Rosty Lasowsky", title: "Agent", agency: "See Insurance Agency LLC", email: "", phone: "(414) 355-5433", photo: "RL" },
+                { name: "Lili Yu", title: "Agent", agency: "See Insurance Agency LLC", email: "", phone: "(414) 355-5433", photo: "LY" }
+            ],
+            tier3: [],
+            tier4: []
+        }
+    },
+        "east-troy": {
+        name: "EAST TROY",
+        group: "Alpine Insurance Agency",
+        address: "3224 Main St, Suite E, East Troy WI 53120<br>Mailing address: P.O. Box 16, East Troy WI 53120",
+        phone: "(262) 642-9801",
+        website: "",
+        description: "To provide our clients with the insurance options they need, at the prices they want, delivered with the service they deserve.",
+        agents: {
+            tier1: [
+                { name: "Randy Dauffenbach", title: "Agency Owner", agency: "Alpine Insurance Agency", email: "randy@bwoinsurance.com", phone: "262-642-9801", photo: "RD" }
+            ],
+            tier2: [
+                { name: "Greg Dauffenbach", title: "Commercial Lines Account Manager", agency: "Alpine Insurance Agency", email: "gregd@bwoinsurance.com", phone: "262-642-9801", photo: "GD" },
+                { name: "Michelle Baker", title: "Personal Lines Account Manager", agency: "Alpine Insurance Agency", email: "michelleb@bwoinsurance.com", phone: "262-642-9801", photo: "MB" },
+                { name: "Alicia Burton", title: "Personal Lines Customer Service Agent", agency: "Alpine Insurance Agency", email: "aliciab@bwoinsurance.com", phone: "262-642-9801", photo: "AB" }
+            ],
+            tier3: [],
+            tier4: []
+        }
+    },
+        "plymouth": {
+        name: "PLYMOUTH",
+        group: "Advantage Insurance Agency",
+        address: "435 E Mill Street, Plymouth WI 53073",
+        phone: "920-893-3252",
+        website: "https://www.advantageinsurancewi.com/",
+        description: "Insurance to give you peace of mind. We understand that it can be hard to trust the insurance industry, but we promise to change your mind when you work with AIA. We are here for you, to help protect you, and guide you so you are taken care of when it matters most. At Advantage Insurance Agency, we have a range of options to best suit your situation. We will not find you the cookie cutter solution. We will find you the solution that works best for your personal life or business.",
+        agents: {
+            tier1: [
+                { name: "April Tarras", title: "Agency Owner", agency: "Advantage Insurance Agency", email: "april@bwoinsurance.com", phone: "920-893-3252", photo: "AT" }
+            ],
+            tier2: [
+                { name: "Mitchell Tarras", title: "Licensed Agent", agency: "Advantage Insurance Agency", email: "mitch@bwoinsurance.com", phone: "920-893-3252", photo: "MT" },
+                { name: "Laura Sapino", title: "Licensed Agent", agency: "Advantage Insurance Agency", email: "lauras@bwoinsurance.com", phone: "920-893-3252", photo: "LS" }
+            ],
+            tier3: [],
+            tier4: []
+        }
     }
+    
+    
+    
     // ... ADD YOUR OTHER 23 LOCATIONS IN THE SAME TIERED FORMAT
 };
 
