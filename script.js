@@ -110,7 +110,7 @@ const officeData = {
             tier4: []
         }
     },
-        "dixon": {
+    "dixon": {
         name: "DIXON",
         group: "Newcomer Insurance Services Inc",
         address: "77 S Peoria Ave<br>P.O. Box 443<br>Dixon, IL 61021",
@@ -142,7 +142,7 @@ const officeData = {
             tier4: []
         }
     },
-        "oostburg": {
+    "oostburg": {
         name: "OOSTBURG",
         group: "Stubler Insurance Solutions",
         address: "N/A - Works from home",
@@ -191,7 +191,50 @@ const officeData = {
             tier4: []
         }
     },
-    
+    "oconomowoc": {
+        name: "OCONOMOWOC",
+        hasMultipleLocations: true,
+        activeLocation: 0, // Default to the first agency
+        locations: [
+            {
+                id: "oconomowoc-lake",
+                tabName: "Lake Area Insurance",
+                group: "Lake Area Insurance Agency, LLC",
+                address: "606 Summit Avenue<br>Oconomowoc, WI 53066",
+                phone: "(262) 569-9150",
+                website: "http://www.lakeareains.com/",
+                description: "Lake Area Insurance has three agents with over 50 years of combined experience who help people navigate the world of insurance. We have always been and will always be local agents. Our group was started in Oconomowoc and all three of us are happy to call this area home. If you are looking for an agent that focuses on quality and cost, listens and wants to get to know you, and has a variety of carriers, we might be the agents for you.",
+                agents: {
+                    tier1: [
+                        { name: "Nicole Rodriguez", title: "Agency Owner", agency: "Lake Area Insurance Agency, LLC", email: "nikki@lakeareains.com", phone: "(262) 569-9150", photo: "NR" },
+                        { name: "Paula Kummrow", title: "Agency Owner", agency: "Lake Area Insurance Agency, LLC", email: "paula@lakeareains.com", phone: "(262) 569-9150", photo: "PK" }
+                    ],
+                    tier2: [
+                         { name: "Lauren Vetz", title: "Licensed Agent", agency: "Lake Area Insurance Agency, LLC", email: "lauren@lakeareains.com", phone: "(262) 569-9150", photo: "LV" }
+                    ],
+                    tier3: [],
+                    tier4: []
+                }
+            },
+            {
+                id: "oconomowoc-kerschner",
+                tabName: "Kerschner Group",
+                group: "Kerschner Group",
+                address: "110 N Main Street<br>Oconomowoc, WI 53066",
+                phone: "(262) 292-9502",
+                website: "https://kerschnergroup.com/",
+                description: "I have been in the insurance industry for over 20 years. I have spent a lot of time researching all aspects of insurance to fit with a family's overall financial plan. As an independent insurance agent, the Kerschner Group has all the tools necessary to serve their client base. We have the best companies in the state, product and price-wise, for the insurance industry. We also have the products for just about every business out there, from someone starting out or an established company that's been around for years.",
+                agents: {
+                    tier1: [
+                        { name: "Dustin Kerschner", title: "Agency Owner", agency: "Kerschner Group", email: "dustin@kerschnergroup.com", phone: "(262) 292-9502", photo: "DK" }
+                    ],
+                    tier2: [],
+                    tier3: [],
+                    tier4: []
+                }
+            }
+        ]
+    },
     "milwaukee": {
         name: "MILWAUKEE",
         hasMultipleLocations: true,
@@ -254,6 +297,27 @@ const officeData = {
                     tier3: [],
                     tier4: []
                 }
+            },
+            {
+                id: "milwaukee-american-one",
+                tabName: "American One Insurance",
+                group: "American One Insurance Agency LLC",
+                address: "3920 S 27th St, Suite D<br>Milwaukee, WI 53221",
+                phone: "(414) 539-4036",
+                website: "",
+                description: "As an insurance agent specializing in Commercial, Personal, and Life insurance, I am dedicated to providing tailored coverage solutions for our clients. With a deep understanding of the industry, I prioritize building strong relationships, ensuring that each client feels valued and informed. My expertise allows me to navigate complex policies, offering clear explanations and personalized recommendations—whether protecting a business's assets or securing a family's financial future. I am committed to delivering peace of mind through reliable coverage and exceptional service.",
+                agents: {
+                    tier1: [
+                        { name: "Karian Castillo", title: "Agency Owner", agency: "American One Insurance Agency LLC", email: "karina@bwoinsurance.com", phone: "(414) 539-4036", photo: "KC" }
+                    ],
+                    tier2: [
+                        { name: "Fatima Valle", title: "Licensed Agent", agency: "American One Insurance Agency LLC", email: "FatimaV@bwoinsurance.com", phone: "(414) 539-4036", photo: "FV" },
+                        { name: "Luis Islas", title: "Transaction Specialist", agency: "American One Insurance Agency LLC", email: "Infoamericanone@bwoinsurance.com", phone: "(414) 539-4036", photo: "LI" },
+                        { name: "Maria Lopez", title: "Executive Assistant", agency: "American One Insurance Agency LLC", email: "americanone@bwoinsurance.com", phone: "(414) 539-4036", photo: "ML" }
+                    ],
+                    tier3: [],
+                    tier4: []
+                }
             }
         ]
     },
@@ -296,7 +360,6 @@ const officeData = {
             tier4: []
         }
     }
-    // ... ADD YOUR OTHER LOCATIONS IN THE SAME TIERED FORMAT
 };
 
 // This function dynamically builds the HTML for a single agent profile
@@ -319,8 +382,13 @@ function createAgentHTML(agent) {
 }
 
 // This function clears and rebuilds the entire agent section
-function renderAgentsForLocation(locationId) {
-    const location = officeData[locationId];
+function renderAgentsForLocation(locationId, subLocationIndex = 0) {
+    const data = officeData[locationId];
+    let location = data;
+    if (data.hasMultipleLocations) {
+        location = data.locations[subLocationIndex];
+    }
+    
     const container = document.getElementById('agents-grid-container');
     if (!location || !container) return;
 
@@ -359,58 +427,264 @@ function renderAgentsForLocation(locationId) {
     });
 }
 
-// Function to create location tabs for multi-location cities
-function createLocationTabs(location) {
-    let tabsHTML = '<div class="location-tabs">';
-    location.locations.forEach((loc, index) => {
-        const activeClass = index === location.activeLocation ? 'active' : '';
-        tabsHTML += `<button class="location-tab ${activeClass}" data-index="${index}">${loc.tabName}</button>`;
-    });
-    tabsHTML += '</div>';
-    return tabsHTML;
+
+// Function to update the main info box
+function updateInfoBox(locationId, subLocationIndex = 0) {
+    const data = officeData[locationId];
+    let location = data;
+    if (data.hasMultipleLocations) {
+        location = data.locations[subLocationIndex];
+    }
+
+    const officeNameEl = document.querySelector('.office-name');
+    const officeGroupEl = document.querySelector('.office-group');
+    const officeAddressEl = document.querySelector('.office-address');
+    const officePhoneEl = document.querySelector('.office-phone');
+    const officeDescriptionEl = document.querySelector('.office-description');
+    
+    officeNameEl.textContent = data.name;
+    officeGroupEl.textContent = location.group || '';
+    officeAddressEl.innerHTML = location.address || '';
+    if (location.phone) {
+        officePhoneEl.innerHTML = `<a href="tel:${location.phone.replace(/[^\d+]/g, '')}" style="color: inherit; text-decoration: none;">${location.phone}</a>`;
+    } else {
+        officePhoneEl.textContent = '';
+    }
+    officeDescriptionEl.textContent = location.description || '';
+
+    renderAgentsForLocation(locationId, subLocationIndex);
 }
 
-// Function to render agents for multi-location cities
-function renderAgentsForMultiLocation(locationId, subLocationIndex) {
-    const location = officeData[locationId];
-    if (!location || !location.locations) return;
+// Function to create and show the modal
+function showLocationModal(pinElement, locationId) {
+    const locationData = officeData[locationId];
+    const modal = document.getElementById('location-modal');
     
-    const subLocation = location.locations[subLocationIndex];
-    const container = document.getElementById('agents-grid-container');
-    if (!subLocation || !container) return;
+    let modalContent = '<ul>';
+    locationData.locations.forEach((loc, index) => {
+        modalContent += `<li><a href="#" data-location-id="${locationId}" data-index="${index}">${loc.tabName}</a></li>`;
+    });
+    modalContent += '</ul>';
+    modal.innerHTML = modalContent;
 
-    container.innerHTML = ''; // Clear previous agents
+    // Position and show the modal
+    const pinRect = pinElement.getBoundingClientRect();
+    const mapContainerRect = document.querySelector('.map-container').getBoundingClientRect();
+    
+    modal.style.left = `${pinRect.left - mapContainerRect.left + (pinRect.width / 2)}px`;
+    modal.style.top = `${pinRect.top - mapContainerRect.top}px`;
+    modal.classList.add('active');
 
-    const tiersWithAgents = [];
-    if (subLocation.agents && subLocation.agents.tier1 && subLocation.agents.tier1.length > 0) {
-        tiersWithAgents.push({ tierClass: 'tier-1', agents: subLocation.agents.tier1 });
-    }
-    if (subLocation.agents && subLocation.agents.tier2 && subLocation.agents.tier2.length > 0) {
-        tiersWithAgents.push({ tierClass: 'tier-2', agents: subLocation.agents.tier2 });
-    }
-    if (subLocation.agents && subLocation.agents.tier3 && subLocation.agents.tier3.length > 0) {
-        tiersWithAgents.push({ tierClass: 'tier-3', agents: subLocation.agents.tier3 });
-    }
-    if (subLocation.agents && subLocation.agents.tier4 && subLocation.agents.tier4.length > 0) {
-        tiersWithAgents.push({ tierClass: 'tier-4', agents: subLocation.agents.tier4 });
-    }
-
-    tiersWithAgents.forEach((tierData, index) => {
-        const grid = document.createElement('div');
-        grid.className = `office-agents-grid ${tierData.tierClass}`;
-        
-        let agentsHTML = '';
-        tierData.agents.forEach(agent => {
-            agentsHTML += createAgentHTML(agent);
+    // Add event listeners for the links inside the modal
+    modal.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const locId = e.target.dataset.locationId;
+            const index = parseInt(e.target.dataset.index, 10);
+            
+            // Set the active sub-location and update the info box
+            officeData[locId].activeLocation = index;
+            updateInfoBox(locId, index);
+            
+            // Highlight the correct main pin
+            setActivePin(pinElement);
+            
+            hideLocationModal();
         });
-        grid.innerHTML = agentsHTML;
-        container.appendChild(grid);
+    });
+}
 
-        if (index < tiersWithAgents.length - 1) {
-            const divider = document.createElement('hr');
-            divider.className = 'full-width-divider';
-            container.appendChild(divider);
-        }
+function hideLocationModal() {
+    const modal = document.getElementById('location-modal');
+    modal.classList.remove('active');
+}
+
+// UPDATED Helper function to set the active pin and bring it to the front
+function setActivePin(pinElement) {
+    // Remove 'active' from all other pins and reset z-index
+    document.querySelectorAll('g.map-pin').forEach(p => {
+        p.classList.remove('active');
+        p.style.zIndex = '';
+    });
+
+    // Add 'active' to the target pin
+    pinElement.classList.add('active');
+    
+    // SOLUTION: Use inline z-index AND move to end of parent
+    pinElement.style.zIndex = '9999';
+    
+    // Also move to end of parent container to ensure it's last in DOM order
+    const parent = pinElement.parentNode;
+    if (parent) {
+        parent.appendChild(pinElement);
+    }
+}
+
+// UPDATED Helper function to set the active pin and bring it to the front
+function setActivePin(pinElement) {
+    // Remove 'active' from all other pins and reset z-index
+    document.querySelectorAll('g.map-pin').forEach(p => {
+        p.classList.remove('active');
+        p.style.zIndex = '';
+    });
+
+    // Add 'active' to the target pin
+    pinElement.classList.add('active');
+    
+    // SOLUTION: Use inline z-index AND move to end of parent
+    pinElement.style.zIndex = '9999';
+    
+    // Also move to end of parent container to ensure it's last in DOM order
+    const parent = pinElement.parentNode;
+    if (parent) {
+        parent.appendChild(pinElement);
+    }
+}
+
+// UPDATED Helper function to set the active pin and bring it to the front
+function setActivePin(pinElement) {
+    // Remove 'active' from all other pins and reset z-index
+    document.querySelectorAll('g.map-pin').forEach(p => {
+        p.classList.remove('active');
+        p.style.zIndex = '';
+    });
+
+    // Add 'active' to the target pin
+    pinElement.classList.add('active');
+    
+    // SOLUTION: Use inline z-index AND move to end of parent
+    pinElement.style.zIndex = '9999';
+    
+    // Also move to end of parent container to ensure it's last in DOM order
+    const parent = pinElement.parentNode;
+    if (parent) {
+        parent.appendChild(pinElement);
+    }
+}
+
+// UPDATED modal positioning function
+function showLocationModal(pinElement, locationId) {
+    const locationData = officeData[locationId];
+    const modal = document.getElementById('location-modal');
+    
+    // FIRST: Set the pin as active when modal opens
+    setActivePin(pinElement);
+    
+    let modalContent = '<ul>';
+    locationData.locations.forEach((loc, index) => {
+        modalContent += `<li><a href="#" data-location-id="${locationId}" data-index="${index}">${loc.tabName}</a></li>`;
+    });
+    modalContent += '</ul>';
+    modal.innerHTML = modalContent;
+
+    // Get positioning elements
+    const mapContainer = document.querySelector('.map-container');
+    const svgElement = mapContainer.querySelector('svg');
+    
+    // Get the pin's position within the SVG
+    const pinCircle = pinElement.querySelector('.pin-background');
+    const cx = parseFloat(pinCircle.getAttribute('cx'));
+    const cy = parseFloat(pinCircle.getAttribute('cy'));
+    
+    // Get SVG viewBox to calculate scale
+    const viewBox = svgElement.viewBox.baseVal;
+    const svgRect = svgElement.getBoundingClientRect();
+    const scaleX = svgRect.width / viewBox.width;
+    const scaleY = svgRect.height / viewBox.height;
+    
+    // Calculate position relative to map container
+    const pinX = cx * scaleX;
+    const pinY = cy * scaleY;
+    
+    // Position modal with pin-specific adjustments
+    let modalX, modalY;
+    
+    if (locationId === 'milwaukee') {
+        // Milwaukee specific positioning
+        modalX = pinX - 140; // Center on pin (250px modal width / 2)
+        modalY = pinY - 250;  // Position below pin
+    } else if (locationId === 'oconomowoc') {
+        // Oconomowoc specific positioning  
+        modalX = pinX - 140; // Center on pin
+        modalY = pinY - 160; // Position above pin
+    } else {
+        // Default positioning for any future multi-location pins
+        modalX = pinX - 125;
+        modalY = pinY - 140;
+    }
+    
+    // Basic boundary checking - keep within map
+    const mapRect = mapContainer.getBoundingClientRect();
+    if (modalX < 10) modalX = 10;
+    if (modalX + 250 > mapRect.width) modalX = mapRect.width - 260;
+    
+    // Position modal
+    modal.style.left = `${modalX}px`;
+    modal.style.top = `${modalY}px`;
+    modal.classList.add('active');
+
+    // Add event listeners for the links inside the modal
+    modal.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const locId = e.target.dataset.locationId;
+            const index = parseInt(e.target.dataset.index, 10);
+            
+            // Set the active sub-location and update the info box
+            officeData[locId].activeLocation = index;
+            updateInfoBox(locId, index);
+            
+            hideLocationModal();
+        });
+    });
+}
+
+// Function to add plus indicators to multi-location pins
+function addPlusIndicators() {
+    document.querySelectorAll('g.map-pin.multi-location').forEach(pin => {
+        // Check if plus indicator already exists
+        if (pin.querySelector('.plus-indicator')) return;
+        
+        const mapContainer = document.querySelector('.map-container');
+        const svgElement = mapContainer.querySelector('svg');
+        const pinCircle = pin.querySelector('.pin-background');
+        const cx = parseFloat(pinCircle.getAttribute('cx'));
+        const cy = parseFloat(pinCircle.getAttribute('cy'));
+        
+        // Calculate position
+        const viewBox = svgElement.viewBox.baseVal;
+        const svgRect = svgElement.getBoundingClientRect();
+        const scaleX = svgRect.width / viewBox.width;
+        const scaleY = svgRect.height / viewBox.height;
+        
+        const pinX = cx * scaleX;
+        const pinY = cy * scaleY;
+        
+        // Create plus indicator element
+        const plusIndicator = document.createElement('div');
+        plusIndicator.className = 'plus-indicator';
+        plusIndicator.textContent = '+';
+        plusIndicator.style.cssText = `
+            position: absolute;
+            left: ${pinX + 8}px;
+            top: ${pinY - 15}px;
+            background: #1A8E44;
+            color: #ffffffff;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            pointer-events: none;
+            z-index: 10;
+        `;
+        
+        mapContainer.appendChild(plusIndicator);
     });
 }
 
@@ -418,81 +692,56 @@ function renderAgentsForMultiLocation(locationId, subLocationIndex) {
 window.addEventListener('DOMContentLoaded', () => {
     
     const allPins = document.querySelectorAll('g.map-pin');
-    const officeNameEl = document.querySelector('.office-name');
-    const officeGroupEl = document.querySelector('.office-group');
-    const officeAddressEl = document.querySelector('.office-address');
-    const officePhoneEl = document.querySelector('.office-phone');
-    const officeDescriptionEl = document.querySelector('.office-description');
     
-    function updateActiveLocation(locationId) {
+    function handlePinClick(pinElement) {
+        const locationId = pinElement.id;
         const data = officeData[locationId];
-        if (!data) {
-            console.error("No data found for location:", locationId);
-            return;
-        }
 
-        // Handle multi-location cities
-        if (data.hasMultipleLocations && data.locations && data.locations.length > 0) {
-            const currentLoc = data.locations[data.activeLocation];
-            
-            // Add tabs above the office name
-            const tabsHTML = createLocationTabs(data);
-            
-            // Update display with current location data
-            officeNameEl.innerHTML = tabsHTML + '<span class="office-name-text">' + data.name + '</span>';
-            officeGroupEl.textContent = currentLoc.group || '';
-            officeAddressEl.innerHTML = currentLoc.address || '';
-            // Make phone clickable
-            if (currentLoc.phone) {
-                officePhoneEl.innerHTML = `<a href="tel:${currentLoc.phone.replace(/[^\d+]/g, '')}" style="color: inherit; text-decoration: none;">${currentLoc.phone}</a>`;
-            } else {
-                officePhoneEl.textContent = '';
-            }
-            officeDescriptionEl.textContent = currentLoc.description || '';
-            
-            // Add tab click handlers
-            setTimeout(() => {
-                const tabs = document.querySelectorAll('.location-tab');
-                tabs.forEach(tab => {
-                    tab.addEventListener('click', (e) => {
-                        const index = parseInt(e.target.dataset.index);
-                        data.activeLocation = index;
-                        updateActiveLocation(locationId);
-                    });
-                });
-            }, 0);
-            
-            // Render agents for current sub-location
-            renderAgentsForMultiLocation(locationId, data.activeLocation);
+        hideLocationModal(); // Hide any open modals first
+
+        if (data.hasMultipleLocations) {
+            showLocationModal(pinElement, locationId);
         } else {
-            // Single location handling (original code)
-            officeNameEl.innerHTML = '<span class="office-name-text">' + data.name + '</span>';
-            officeGroupEl.textContent = data.group || '';
-            officeAddressEl.innerHTML = data.address || '';
-            // Make phone clickable
-            if (data.phone) {
-                officePhoneEl.innerHTML = `<a href="tel:${data.phone.replace(/[^\d+]/g, '')}" style="color: inherit; text-decoration: none;">${data.phone}</a>`;
-            } else {
-                officePhoneEl.textContent = '';
-            }
-            officeDescriptionEl.textContent = data.description || '';
-            renderAgentsForLocation(locationId);
+            updateInfoBox(locationId);
+            setActivePin(pinElement);
         }
-
-        allPins.forEach(pin => {
-            pin.classList.toggle('active', pin.id === locationId);
-            // Move active pin to end of its parent (brings it to front in SVG)
-            if (pin.id === locationId) {
-                pin.parentNode.appendChild(pin);
-            }
-        });
     }
 
     allPins.forEach(pin => {
-        pin.addEventListener('click', () => {
-            updateActiveLocation(pin.id);
+        pin.addEventListener('click', (e) => {
+            e.stopPropagation();
+            handlePinClick(pin);
         });
+        
+        // Add class to multi-location pins for styling
+        if (officeData[pin.id] && officeData[pin.id].hasMultipleLocations) {
+            pin.classList.add('multi-location');
+        }
     });
 
-    updateActiveLocation('oak-creek');
-});
+    // Close modal if clicking anywhere else on the page
+    document.addEventListener('click', (e) => {
+        const modal = document.getElementById('location-modal');
+        if (modal.classList.contains('active') && !modal.contains(e.target)) {
+            hideLocationModal();
+        }
+    });
+
+    // Initialize with a default location
+    updateInfoBox('oak-creek');
+    const initialPin = document.getElementById('oak-creek');
+    if (initialPin) {
+         setActivePin(initialPin);
+    }
+    
+    // Add plus indicators
+    addPlusIndicators();
+
+    // Handle window resize - this should be inside DOMContentLoaded
+    window.addEventListener('resize', () => {
+        // Remove existing indicators
+        document.querySelectorAll('.plus-indicator').forEach(el => el.remove());
+        // Re-add them with updated positions
+        addPlusIndicators();
+    });
+}); 
