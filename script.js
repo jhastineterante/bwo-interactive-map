@@ -4,7 +4,7 @@ const officeData = {
     "oak-creek": {
         name: "OAK CREEK",
         group: "BWO Insurance Group, LLC",
-        address: "7925 S. 6th St.<br>Oak Creek, WI 53154",
+        address: "7472 S 6th St.<br>Oak Creek, WI 53154",
         phone: "(414) 768-8100",
         website: "", // No website for this location
         description: "Since 1983, BWO Insurance has been committed to providing our clients with the highest level of professional care. We pride ourselves on building lasting relationships built on trust and respect.",
@@ -745,4 +745,5 @@ window.addEventListener('DOMContentLoaded', () => {
         addPlusIndicators();
     });
 }); 
+
 
