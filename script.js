@@ -7,13 +7,13 @@ const officeData = {
         address: "7472 S 6th St.<br>Oak Creek, WI 53154",
         phone: "(414) 768-8100",
         website: "", // No website for this location
-        description: "Since 1983, BWO Insurance has been committed to providing our clients with the highest level of professional care. We pride ourselves on building lasting relationships built on trust and respect.",
+        description: "Since 1985, BWO Insurance has been committed to providing our clients with the highest level of professional care. We pride ourselves on building lasting relationships built on trust and respect.",
         agents: {
             // TIER 1: Owners (3 columns, large headshots)
             tier1: [
                 { name: "Tom Budzisz", title: "Owner/Licensed Agent", agency: "Budzisz Agency", email: "tom@bwoinsurance.com", phone: "(414) 501-1246", photo: "TB" },
-                { name: "Michael Osborne", title: "Owner/Licensed Agent", agency: "Osborne Agency", email: "michael@bwoinsurance.com", phone: "(414) 501-1245", photo: "MO" },
-                { name: "Greg Budzisz", title: "Owner/Licensed Agent", agency: "Budzisz Agency", email: "greg@bwoinsurance.com", phone: "(414) 501-1254", photo: "GB" }
+                { name: "Greg Budzisz", title: "Owner/Licensed Agent", agency: "Budzisz Agency", email: "greg@bwoinsurance.com", phone: "(414) 501-1254", photo: "GB" },
+                { name: "Michael Osborne", title: "Owner/Licensed Agent", agency: "Osborne Agency", email: "michael@bwoinsurance.com", phone: "(414) 501-1245", photo: "MO" }
             ],
             // TIER 2: Directors (3 columns, medium headshots)
             tier2: [
@@ -49,8 +49,8 @@ const officeData = {
                 { name: "Paulette Bakalars", title: "Commercial Lines Customer Service Agent", agency: "BWO Insurance", photo: "PB" },
                 { name: "Diane Brandt", title: "Commercial Lines Customer Service Agent", agency: "BWO Insurance", photo: "DB" },
                 { name: "Toni Lane", title: "Customer Service Agent", agency: "BWO Insurance", photo: "TL" },
-                { name: "Carolyn Schubert", title: "Customer Service Agent", agency: "BWO Insurance", photo: "CS" },
-                { name: "Zack Klein", title: "Customer Service Agent", agency: "BWO Insurance", photo: "ZK" },
+                { name: "Carolyn Schubert", title: "Account Manager", agency: "BWO Insurance", photo: "CS" },
+                { name: "Zack Klein", title: "Executive Assistant", agency: "BWO Insurance", photo: "ZK" },
                 { name: "Shawn Stolte", title: "Customer Service Agent", agency: "BWO Insurance", photo: "SS" },
                 { name: "Nancy Ashmore", title: "Customer Service Agent", agency: "BWO Insurance", photo: "NA" },
                 { name: "Victoria Coleman", title: "Customer Service Agent", agency: "BWO Insurance", photo: "VC" },
@@ -745,5 +745,6 @@ window.addEventListener('DOMContentLoaded', () => {
         addPlusIndicators();
     });
 }); 
+
 
 
