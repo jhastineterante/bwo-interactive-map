@@ -43,17 +43,17 @@ const officeData = {
                 { name: "Victoria (Vicki) Leuze", title: "Account Manager", agency: "BWO Insurance", photo: "VL" },
                 { name: "Andrea Suheski", title: "Account Manager", agency: "BWO Insurance", photo: "AS" },
                 { name: "Bria Lopez", title: "Account Manager", agency: "BWO Insurance", photo: "BL" },
+                { name: "Carolyn Schubert", title: "Account Manager", agency: "BWO Insurance", photo: "CS" },
                 { name: "Evan Sell", title: "Account Manager", agency: "BWO Insurance", photo: "ES" },
                 { name: "Peter Opie", title: "Commercial Lines Account Manager", agency: "BWO Insurance", photo: "PO" },
                 { name: "David Oas", title: "Commercial Lines Team Lead", agency: "BWO Insurance", photo: "DO" },
                 { name: "Paulette Bakalars", title: "Commercial Lines Customer Service Agent", agency: "BWO Insurance", photo: "PB" },
                 { name: "Diane Brandt", title: "Commercial Lines Customer Service Agent", agency: "BWO Insurance", photo: "DB" },
-                { name: "Toni Lane", title: "Customer Service Agent", agency: "BWO Insurance", photo: "TL" },
-                { name: "Carolyn Schubert", title: "Account Manager", agency: "BWO Insurance", photo: "CS" },
-                { name: "Zack Klein", title: "Executive Assistant", agency: "BWO Insurance", photo: "ZK" },
+                { name: "Toni Lane", title: "Customer Service Agent", agency: "BWO Insurance", photo: "TL" },           
                 { name: "Shawn Stolte", title: "Customer Service Agent", agency: "BWO Insurance", photo: "SS" },
                 { name: "Nancy Ashmore", title: "Customer Service Agent", agency: "BWO Insurance", photo: "NA" },
                 { name: "Victoria Coleman", title: "Customer Service Agent", agency: "BWO Insurance", photo: "VC" },
+                { name: "Zack Klein", title: "Executive Assistant", agency: "BWO Insurance", photo: "ZK" },
                 { name: "Jennifer Ferreira", title: "Transaction Specialist", agency: "BWO Insurance", photo: "JF" },
                 { name: "Ashleigh Santos Saldes", title: "Transaction Specialist", agency: "BWO Insurance", photo: "AS" },
                 { name: "Melissa Dillon", title: "Receptionist", agency: "BWO Insurance", photo: "MD" }
@@ -745,6 +745,7 @@ window.addEventListener('DOMContentLoaded', () => {
         addPlusIndicators();
     });
 }); 
+
 
 
 
