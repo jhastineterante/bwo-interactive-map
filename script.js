@@ -60,16 +60,6 @@ const officeData = {
             ]
         }
     },
-    "wauwatosa": {
-        name: "WAUWATOSA",
-        group: "BWO Insurance Group, LLC",
-        address: "123 Main St.<br>Wauwatosa, WI 55555",
-        phone: "(555) 555-1234",
-        description: "Serving the Wauwatosa community with dedicated care and expert insurance solutions for over 20 years.",
-        agents: {
-            tier1: [], tier2: [], tier3: [], tier4: []
-        }
-    },
     "brillion": {
         name: "BRILLION",
         group: "N.E.W. Insurance and Financial Services",
@@ -100,8 +90,8 @@ const officeData = {
         description: "Since opening our Elkhorn office in 2005, we have made it our mission to treat every customer with the care and respect they deserve—just as we would want to be treated ourselves. As your neighbors and friends, we understand that your concerns are our concerns. This commitment has earned us the trust of our clients, who appreciate our genuine dedication to meeting their needs. We are proud to serve not only Elkhorn, but also the surrounding areas of Lake Geneva, Delavan, and all of Walworth County. Our focus is always on the community, and we are honored to be a part of it. Additionally, we offer bilingual services in Spanish, ensuring that we can meet the needs of even more residents. We look forward to serving you!",
         agents: {
             tier1: [
-                { name: "Jennifer Hutchinson", title: "Agency Owner", agency: "BWO Insurance - Elkhorn", email: "jen@bwoinsuranceelkhorn.com", phone: "(262) 743-2011", photo: "JH" },
-                { name: "Hoss Rehberg", title: "Agency Owner", agency: "BWO Insurance - Elkhorn", email: "Hoss@bwoinsuranceelkhorn.com", phone: "(262) 743-2011", photo: "HR" }
+                { name: "Jennifer Hutchinson", title: "Licensed Agent", agency: "BWO Insurance - Elkhorn", email: "jen@bwoinsuranceelkhorn.com", phone: "(262) 743-2011", photo: "JH" },
+                { name: "Hoss Rehberg", title: "Licensed Agent", agency: "BWO Insurance - Elkhorn", email: "Hoss@bwoinsuranceelkhorn.com", phone: "(262) 743-2011", photo: "HR" }
             ],
             tier2: [
                 { name: "Denise De La Vega", title: "Licensed Agent", agency: "BWO Insurance - Elkhorn", email: "denisse@bwoinsuranceelkhorn.com", phone: "(262) 743-2011", photo: "DD" }
@@ -158,22 +148,6 @@ const officeData = {
             tier4: []
         }
     },
-    "burlington": {
-        name: "BURLINGTON",
-        group: "Cates Insurance Services, LLC",
-        address: "565 Milwaukee Ave, Suite 2C<br>Burlington, WI 53105",
-        phone: "(262) 757-6107",
-        website: "",
-        description: "Full service agency offering Property, Casualty, Life and Health insurance.",
-        agents: {
-            tier1: [
-                { name: "Tim Cates", title: "Agency Owner", agency: "Cates Insurance Services, LLC", email: "tim@catesinsuranceservices.com", phone: "(262) 757-6107", photo: "TC" }
-            ],
-            tier2: [],
-            tier3: [],
-            tier4: []
-        }
-    },
     "appleton": {
         name: "APPLETON",
         group: "Jeff Oswald Insurance Agency",
@@ -191,6 +165,321 @@ const officeData = {
             tier4: []
         }
     },
+    "denmark": {
+    name: "DENMARK",
+    group: "Denmark Insurance Center LLC",
+    address: "(P.O. BOX 339) 114 E Main Street<br>Denmark, WI 54208",
+    phone: "(920) 863-2144",
+    website: "",
+    description: "",
+    agents: {
+        tier1: [
+            { name: "Mark Verbeten", title: "Agency Owner", agency: "Denmark Insurance Center LLC", email: "markv@bwoinsurance.com", phone: "(920) 217-2841", photo: "MV" }
+        ],
+        tier2: [
+            { name: "Jeffrey R Scherer", title: "Licensed Agent", agency: "Denmark Insurance Center LLC", email: "Jeffreys@bwoinsurance.com", phone: "(920) 217-2841", photo: "JS" }
+        ],
+        tier3: [],
+        tier4: []
+    }
+},
+"theresa": {
+    name: "THERESA",
+    group: "(Keri Seiler DBA) KSS Insurance Services",
+    address: "N9450 Mohawk Rd<br>Theresa, WI 53091",
+    phone: "(262) 339-2150",
+    website: "https://kssinsuranceservice.com/",
+    description: "Keri is a second-generation insurance agent who is honored to share her knowledge and insight with you. I take pride in protecting what matters most to you, your home, business, or agricultural ventures. With personalized coverage and an exceptional service approach, I am here to guide you every step of the way.",
+    agents: {
+        tier1: [
+            { name: "Keri Seiler", title: "Agency Owner", agency: "KSS Insurance Services", email: "Keri.Seiler@KSSInsuranceService.com", phone: "(262) 339-2150", photo: "KS" }
+        ],
+        tier2: [],
+        tier3: [],
+        tier4: []
+    }
+},
+"addison": {
+    name: "ADDISON",
+    group: "Worldwide Capital LLC",
+    address: "991 W Lake St<br>Addison, IL 60101",
+    phone: "(630) 283-0058",
+    website: "",
+    description: "",
+    agents: {
+        tier1: [
+            { name: "Urmish Patel", title: "Agency Owner", agency: "Worldwide Capital LLC", email: "up@wwc.insure", phone: "(630) 283-0058", photo: "UP" }
+        ],
+        tier2: [],
+        tier3: [],
+        tier4: []
+    }
+},
+"waupun": {
+    name: "WAUPUN",
+    group: "Rock River Insurance, LLC",
+    address: "Works from home",
+    phone: "(920) 345-2266",
+    website: "http://www.rockriverins.com/",
+    description: "Rock River Insurance is an independent insurance agency serving the Waupun area for personal and commercial insurance.",
+    agents: {
+        tier1: [
+            { name: "Ryan Mulder", title: "Agency Owner", agency: "Rock River Insurance, LLC", email: "rmulder@rockriverins.com", phone: "(920) 345-2266", photo: "RM" },
+            { name: "Kathy Mulder", title: "Agency Owner", agency: "Rock River Insurance, LLC", email: "kathym@bwoinsurance.com", phone: "(920) 960-4458", photo: "KM" }
+        ],
+        tier2: [],
+        tier3: [],
+        tier4: []
+    }
+},
+"west-allis": {
+    name: "WEST ALLIS",
+    group: "T1 Insurance Agency",
+    address: "10617 W Oklahoma Ave, Suite U4<br>West Allis, WI 53227",
+    phone: "(414) 279-5495",
+    website: "",
+    description: "BWO Insurance T1 Agency provides insurance including bi-lingual services for Personal and Commercial products to include home, auto and recreational vehicles, commercial contractor, auto and business owners.",
+    agents: {
+        tier1: [
+            { name: "David Scholfield", title: "Agency Owner", agency: "T1 Insurance Agency", email: "davids@bwoinsurance.com", phone: "(414) 279-5495", photo: "DS" }
+        ],
+        tier2: [
+            { name: "Alejandra Corona", title: "Licensed Agent", agency: "T1 Insurance Agency", email: "alejandrac@bwoinsurance.com", phone: "(414) 279-5495", photo: "AC" }
+        ],
+        tier3: [],
+        tier4: []
+    }
+},
+"schofield": {
+    name: "SCHOFIELD",
+    group: "Schofield Insurance Agency",
+    address: "6708 Feith Ave<br>Schofield, WI 54476",
+    phone: "(715) 359-6246",
+    website: "https://schofieldinsagency.com/",
+    description: "Father Son Agency that believes in Exceptional customer service",
+    agents: {
+        tier1: [
+            { name: "Scott Hackbarth", title: "Agency Owner", agency: "Schofield Insurance Agency", email: "scotth@bwoinsurance.com", phone: "(715) 359-6246", photo: "SH" }
+        ],
+        tier2: [
+            { name: "Davis Hackbarth", title: "Licensed Agent", agency: "Schofield Insurance Agency", email: "Davish@bwoinsurance.com", phone: "(715) 359-6246", photo: "DH" },
+            { name: "Nick Weiss", title: "Licensed Agent", agency: "Schofield Insurance Agency", email: "Nickw@bwoinsurance.com", phone: "(715) 359-6246", photo: "NW" }
+        ],
+        tier3: [],
+        tier4: []
+    }
+},
+"fort-atkinson": {
+    name: "FORT ATKINSON",
+    group: "Price Insurance Agency",
+    address: "115 Sherman Ave W, Suite 1<br>Fort Atkinson, WI 53538",
+    phone: "(920) 397-7890",
+    website: "",
+    description: "",
+    agents: {
+        tier1: [
+            { name: "Aaron Price", title: "Agency Owner", agency: "Price Insurance Agency", email: "aaron@price-insurance.com", phone: "(920) 397-7890", photo: "AP" }
+        ],
+        tier2: [],
+        tier3: [],
+        tier4: []
+    }
+},
+"allenton": {
+    name: "ALLENTON",
+    group: "Laurie Fechter Insurance Agency",
+    address: "8476 Linden Ridge Rd<br>Allenton, WI 53002",
+    phone: "(262) 675-6847",
+    website: "",
+    description: "With over 41 years in the insurance industry, I've built my career on trust, service, and a genuine love for helping people protect what matters most. I began on the company side, where I spent the first five years of my career assembling policies and ensuring the proper coverage forms were in place. That experience gave me a strong foundation in how insurance programs are structured and how coverage is delivered. Moving to the independent agency side allowed me to focus on what I enjoy most: working directly with clients to find the right coverage at the most affordable price. I specialize in personal, life, and business insurance, and take pride in helping individuals, families, and business owners navigate their options with clarity and confidence. Insurance is not just my profession. It is my passion. There is nothing more rewarding than knowing I've helped someone feel secure and cared for.",
+    agents: {
+        tier1: [
+            { name: "Laurie Fechter", title: "Agency Owner", agency: "Laurie Fechter Insurance Agency", email: "laurie@bwoinsurance.com", phone: "(262) 675-6847", photo: "LF" }
+        ],
+        tier2: [],
+        tier3: [],
+        tier4: []
+    }
+},
+"burlington": {
+    name: "BURLINGTON",
+    group: "Cates Insurance Services, LLC",
+    address: "565 Milwaukee Ave, Suite 2C<br>Burlington, WI 53105",
+    phone: "(262) 757-6107",
+    website: "",
+    description: "Full service agency offering Property, Casualty, Life and Health",
+    agents: {
+        tier1: [
+            { name: "Tim Cates", title: "Agency Owner", agency: "Cates Insurance Services, LLC", email: "tim@catesinsuranceservices.com", phone: "(262) 757-6107", photo: "TC" }
+        ],
+        tier2: [
+            { name: "Dawn Stewart", title: "Licensed Agent", agency: "Cates Insurance Services, LLC", email: "dawn@catesinsuranceservices.com", phone: "(262) 909-0629", photo: "DS" }
+        ],
+        tier3: [],
+        tier4: []
+    }
+},
+"brookfield": {
+    name: "BROOKFIELD",
+    group: "Gary Gilmore",
+    address: "N/A - Works from home",
+    phone: "(414) 828-5333",
+    website: "",
+    description: "Specializes in Business/Commercial Insurance and Risk Management",
+    agents: {
+        tier1: [
+            { name: "Gary Gilmore", title: "Agency Owner", agency: "Gary Gilmore", email: "gary@bwoinsurance.com", phone: "(414) 828-5333", photo: "GG" }
+        ],
+        tier2: [],
+        tier3: [],
+        tier4: []
+    }
+},
+"eau-claire": {
+    name: "EAU CLAIRE",
+    group: "BIA LLC",
+    address: "1235 Menomonie St, Suite H<br>Eau Claire, WI 54703",
+    phone: "(715) 803-6373",
+    website: "",
+    description: "I have been in the industry over 17 years and we are active members of the P.I.A",
+    agents: {
+        tier1: [
+            { name: "Dustin Barnett", title: "Agency Owner", agency: "BIA LLC", email: "Dustin.Barnett@gmail.com", phone: "(715) 803-6373", photo: "DB" }
+        ],
+        tier2: [],
+        tier3: [],
+        tier4: []
+    }
+},
+"hubertus": {
+    name: "HUBERTUS",
+    group: "Charles Mason Insurance",
+    address: "4759 Riverview Dr<br>Hubertus, WI 53033",
+    phone: "(262) 334-1300",
+    website: "https://www.chuckmasoninsurance.com/",
+    description: "We have been serving West Bend, and Washington County for over 26 years - You Gotta Check With Chuck!",
+    agents: {
+        tier1: [
+            { name: "Chuck Mason", title: "Agency Owner", agency: "Charles Mason Insurance", email: "Charlesmasonagency@gmail.com", phone: "(262) 334-1300", photo: "CM" }
+        ],
+        tier2: [],
+        tier3: [],
+        tier4: []
+    }
+},
+"franklin": {
+    name: "FRANKLIN",
+    group: "Fuerst Insurance Services",
+    address: "10121 W Loomis Rd<br>Franklin, WI",
+    phone: "(414) 429-5293",
+    website: "https://www.fuerstinsurance.com/",
+    description: "For over 14 years, owner Carlette Purfuerst has been helping people understand the ins and outs of insurance—an industry that is often overlooked until you need it most. At Fuerst Insurance Services, clients aren't just policyholders. They're neighbors. Friends. Family. As an independent agency, Fuerst Insurance Services has access to a wide range of carriers and products. That means they can tailor policies to fit your unique needs. You won't find a one-size-fits-all approach here. Instead, you'll find honest guidance, custom solutions, and an advocate who's on your side.",
+    agents: {
+        tier1: [
+            { name: "Carlette Purfuerst", title: "Agency Owner", agency: "Fuerst Insurance Services", email: "carlette@fuerstinsurance.com", phone: "(414) 429-5293", photo: "CP" }
+        ],
+        tier2: [
+            { name: "Carrie H", title: "Agency Assistant", agency: "Fuerst Insurance Services", email: "carrie@fuerstinsurance.com", phone: "(414) 429-5293", photo: "CH" }
+        ],
+        tier3: [],
+        tier4: []
+    }
+},
+"racine": {
+    name: "RACINE",
+    group: "Marzins - Mario Martinez Agency",
+    address: "3716 Durand Ave<br>Racine, WI 53405",
+    phone: "(262) 456-0321",
+    website: "https://www.marzins.com/",
+    description: "At Marz Insurance, we believe that insurance should feel personal, not complicated. We're your neighbors, your friends, and your trusted team — proudly serving Racine families and businesses with friendly, bilingual insurance services since 1987. Our local, independent agency makes it easy for you to protect what matters most: your home, your car, your business, and your health. Whether you prefer English or Spanish, you'll always find clear answers, competitive rates, and people who truly care.",
+    agents: {
+        tier1: [
+            { name: "Mario Martinez", title: "Agency Owner", agency: "Marzins - Mario Martinez Agency", email: "mario@marzins.com", phone: "(262) 456-0321", photo: "MM" }
+        ],
+        tier2: [
+            { name: "Danny Aranda", title: "Licensed Agent", agency: "Marzins - Mario Martinez Agency", email: "danny@marzins.com", phone: "(262) 456-0321", photo: "DA" }
+        ],
+        tier3: [],
+        tier4: []
+    }
+},
+"kenosha": {
+    name: "KENOSHA",
+    hasMultipleLocations: true,
+    activeLocation: 0,
+    locations: [
+        {
+            id: "kenosha-dangelo",
+            tabName: "D'Angelo Insurance Agency",
+            group: "D'Angelo Insurance Agency LLC",
+            address: "2409 52nd Street<br>Kenosha, WI 53140",
+            phone: "(262) 658-8955",
+            website: "",
+            description: "",
+            agents: {
+                tier1: [
+                    { name: "Jim D'Angelo", title: "Agency Owner", agency: "D'Angelo Insurance Agency LLC", email: "jim@bwoinsurance.com", phone: "(262) 658-8955", photo: "JD" }
+                ],
+                tier2: [],
+                tier3: [],
+                tier4: []
+            }
+        },
+        {
+            id: "kenosha-schmitz",
+            tabName: "Schmitz Insurance Services",
+            group: "Schmitz Insurance Services, Inc",
+            address: "4623 75th #133 Street<br>Kenosha, WI 53142",
+            phone: "(262) 925-3403",
+            website: "",
+            description: "",
+            agents: {
+                tier1: [
+                    { name: "John Schmitz", title: "Agency Owner", agency: "Schmitz Insurance Services, Inc", email: "john@schmitzinsuranceservices.com", phone: "(262) 925-3403", photo: "JS" }
+                ],
+                tier2: [],
+                tier3: [],
+                tier4: []
+            }
+        },
+        {
+            id: "kenosha-neave",
+            tabName: "Neave Accounting and Insurance",
+            group: "Neave Accounting and Insurance",
+            address: "6121 Green Bay Road, Suite 230<br>Kenosha, WI 53142",
+            phone: "(262) 656-9677",
+            website: "https://neaveaccounting.com/",
+            description: "Se habla Español",
+            agents: {
+                tier1: [
+                    { name: "Adriana Neave", title: "Agency Owner", agency: "Neave Accounting and Insurance", email: "Adriana@neaveaccounting.com", phone: "(262) 656-9677", photo: "AN" }
+                ],
+                tier2: [
+                    { name: "Ana Murguia", title: "Licensed Agent", agency: "Neave Accounting and Insurance", email: "Ana@neaveaccounting.com", phone: "(262) 656-9677", photo: "AM" }
+                ],
+                tier3: [],
+                tier4: []
+            }
+        },
+        {
+            id: "kenosha-cox",
+            tabName: "Timothy A. Cox Agency",
+            group: "Timothy A. Cox Agency",
+            address: "7528 39th Ave<br>Kenosha, WI 53142",
+            phone: "(262) 558-4470",
+            website: "",
+            description: "",
+            agents: {
+                tier1: [
+                    { name: "Timothy Cox", title: "Agency Owner", agency: "Timothy A. Cox Agency", email: "timothyc@bwoinsurance.com", phone: "(262) 558-4470", photo: "TC" }
+                ],
+                tier2: [],
+                tier3: [],
+                tier4: []
+            }
+        }
+    ]
+},
     "oconomowoc": {
         name: "OCONOMOWOC",
         hasMultipleLocations: true,
@@ -268,7 +557,7 @@ const officeData = {
                 address: "414 S 2nd St<br>Milwaukee, WI 53204",
                 phone: "(414) 277-0414",
                 website: "https://www.reedstreetins.com/",
-                description: "Insurance Doesn't Matter Until You Need It - Reed Street Insurance Agency is here when you do.",
+                description: "Insurance Doesn't Matter Until You Need It",
                 agents: {
                     tier1: [
                         { name: "James Pogorelc", title: "Agency Owner", agency: "Reed Street Insurance Agency", email: "jim@reedstreetins.com", phone: "(414) 277-0414", photo: "JP" }
@@ -602,15 +891,15 @@ function showLocationModal(pinElement, locationId) {
     if (locationId === 'milwaukee') {
         // Milwaukee specific positioning
         modalX = pinX - 140; // Center on pin (250px modal width / 2)
-        modalY = pinY - 280;  // Position below pin
+        modalY = pinY - 240;  // Position below pin
     } else if (locationId === 'oconomowoc') {
         // Oconomowoc specific positioning  
         modalX = pinX - 140; // Center on pin
-        modalY = pinY - 160; // Position above pin
-    } else {
+        modalY = pinY - 150; // Position above pin
+    } else if (locationId === 'kenosha') {
         // Default positioning for any future multi-location pins
-        modalX = pinX - 125;
-        modalY = pinY - 140;
+        modalX = pinX - 100;
+        modalY = pinY - 260;
     }
     
     // Basic boundary checking - keep within map
@@ -636,55 +925,6 @@ function showLocationModal(pinElement, locationId) {
             
             hideLocationModal();
         });
-    });
-}
-
-// Function to add plus indicators to multi-location pins
-function addPlusIndicators() {
-    document.querySelectorAll('g.map-pin.multi-location').forEach(pin => {
-        // Check if plus indicator already exists
-        if (pin.querySelector('.plus-indicator')) return;
-        
-        const mapContainer = document.querySelector('.map-container');
-        const svgElement = mapContainer.querySelector('svg');
-        const pinCircle = pin.querySelector('.pin-background');
-        const cx = parseFloat(pinCircle.getAttribute('cx'));
-        const cy = parseFloat(pinCircle.getAttribute('cy'));
-        
-        // Calculate position
-        const viewBox = svgElement.viewBox.baseVal;
-        const svgRect = svgElement.getBoundingClientRect();
-        const scaleX = svgRect.width / viewBox.width;
-        const scaleY = svgRect.height / viewBox.height;
-        
-        const pinX = cx * scaleX;
-        const pinY = cy * scaleY;
-        
-        // Create plus indicator element
-        const plusIndicator = document.createElement('div');
-        plusIndicator.className = 'plus-indicator';
-        plusIndicator.textContent = '+';
-        plusIndicator.style.cssText = `
-            position: absolute;
-            left: ${pinX + 8}px;
-            top: ${pinY - 15}px;
-            background: #1A8E44;
-            color: #ffffffff;
-            border-radius: 50%;
-            width: 16px;
-            height: 16px;
-            font-size: 12px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #ffffff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            pointer-events: none;
-            z-index: 10;
-        `;
-        
-        mapContainer.appendChild(plusIndicator);
     });
 }
 
@@ -733,19 +973,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (initialPin) {
          setActivePin(initialPin);
     }
-    
-    // Add plus indicators
-    addPlusIndicators();
-
-    // Handle window resize - this should be inside DOMContentLoaded
-    window.addEventListener('resize', () => {
-        // Remove existing indicators
-        document.querySelectorAll('.plus-indicator').forEach(el => el.remove());
-        // Re-add them with updated positions
-        addPlusIndicators();
-    });
 }); 
-
 
 
 
