@@ -28,6 +28,7 @@ body {
 .right-column {
     flex: 1; /* Takes up ~40% */
     min-width: 320px;
+    position: relative; /* Needed for modal positioning */
 }
 
 h1.main-heading {
@@ -41,12 +42,12 @@ h1.main-heading {
 
 /* Info Box Styling */
 .info-box {
-    margin-top: 15%;
+    margin-top: 10%;
     background-color: #0a1835;
     color: #ffffff;
     padding: 3.5rem;
     border-radius: 4px;
-    max-width: 450px; 
+    max-width: 550px; 
 }
 
 .office-name {
@@ -66,6 +67,7 @@ h1.main-heading {
 }
 .office-phone {
     font-weight: 700;
+    margin-top:3rem;
 }
  
 /* Office Description Styling */
@@ -74,7 +76,7 @@ h1.main-heading {
     font-size: 1.5rem;
     line-height: 1.7;
     margin-top: 1.5rem;
-    max-width: 500px; 
+    max-width: 650px; 
     border-radius: 4px;
     text-align: center;
 }
@@ -88,6 +90,13 @@ h1.main-heading {
 /* --- Pin Interactivity --- */
 g.map-pin {
     cursor: pointer;
+}
+
+.map-pin.active {
+    z-index: 99999 !important;
+}
+.map-pin {
+    position: relative;
 }
 .pin-icon {
     fill: #0a1835;
@@ -110,6 +119,66 @@ g.map-pin:hover .pin-icon,
 g.map-pin.active .pin-icon {
     fill: #ffffff;
 }
+
+/* Visual indicator for multi-location pins */
+.pin-indicator {
+    fill: #006FBA;
+    r: 0;
+    opacity: 0.4;
+    transition: r 0.3s ease;
+    pointer-events: none; /* Allows clicks to pass through to the main pin */
+}
+g.map-pin.multi-location .pin-indicator {
+    r: 10; /* Make the indicator visible for multi-location pins */
+}
+
+.location-modal {
+    position: absolute;
+    display: none; /* Hidden by default */
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 1rem;
+    z-index: 1000;
+    width: 250px;
+    transform: none !important;
+    /* Remove this line: transform: translate(-50%, -120%); */
+}
+
+.location-modal::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #ffffff;
+}
+.location-modal.active {
+    display: block;
+}
+.location-modal ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.location-modal li a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #0a1835;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    font-weight: 600;
+}
+.location-modal li a:hover {
+    background-color: #f0f0f0;
+}
+/* --- End of Modal Styles --- */
 
 /* --- Banner & Agent Section Styles --- */
 .banner {
@@ -188,7 +257,10 @@ g.map-pin.active .pin-icon {
     grid-template-columns: repeat(3, 1fr);
 }
 
-.tier-3-4 {
+.tier-3 {
+    grid-template-columns: repeat(5, 1fr);
+}
+.tier-4 {
     grid-template-columns: repeat(5, 1fr);
 }
 
@@ -207,16 +279,20 @@ g.map-pin.active .pin-icon {
 
 /* Different headshot sizes for tiers */
 .tier-1 .agent-headshot {
-    width: 220px;
-    height: 220px;
-}
-.tier-2 .agent-headshot {
     width: 180px;
     height: 180px;
 }
-.tier-3-4 .agent-headshot {
+.tier-2 .agent-headshot {
     width: 150px;
     height: 150px;
+}
+.tier-3 .agent-headshot {
+    width: 150px;  /* Licensed Agents */
+    height: 150px;
+}
+.tier-4 .agent-headshot {
+    width: 130px;  /* Staff - smaller */
+    height: 130px;
 }
 
 .agent-headshot {
@@ -266,7 +342,7 @@ g.map-pin.active .pin-icon {
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
 @media (max-width: 1200px) {
-    .tier-3-4 {
+    .tier-3, .tier-4 {
         grid-template-columns: repeat(4, 1fr);
     }
 }
@@ -275,7 +351,7 @@ g.map-pin.active .pin-icon {
     .tier-1, .tier-2 {
         grid-template-columns: repeat(2, 1fr);
     }
-    .tier-3-4 {
+    .tier-3, .tier-4 {
         grid-template-columns: repeat(3, 1fr);
     }
     h1.main-heading {
@@ -285,18 +361,31 @@ g.map-pin.active .pin-icon {
         font-size: 2rem;
     }
 }
+
 @media (max-width: 600px) {
     .tier-1, .tier-2 {
         grid-template-columns: repeat(1, 1fr);
     }
-    .tier-3-4 {
+    .tier-3, .tier-4 {
         grid-template-columns: repeat(2, 1fr);
     }
     h1.main-heading {
-        font-size: 3rem;
+        font-size: 4rem;
     }
-     .banner h2 {
+    .banner h2 {
         font-size: 1.5rem;
     }
+    .office-description {
+        font-size: 1.2rem;
+    }
+    .office-group, .office-address, .office-phone {
+        font-size: 1.5rem;
+    }
+    .office-name {
+        font-size: 2.5rem;
+    }
+    .info-box {
+        padding: 1.5rem;
+        max-width: 550px; 
+    }
 }
-
