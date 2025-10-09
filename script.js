@@ -882,7 +882,7 @@ function showLocationModal(pinElement, locationId) {
     } else if (locationId === 'kenosha') {
         // Default positioning for any future multi-location pins
         modalX = pinX - 140;
-        modalY = pinY - 270;
+        modalY = pinY - 240;
     }
     
     // Basic boundary checking - keep within map
@@ -957,6 +957,7 @@ window.addEventListener('DOMContentLoaded', () => {
          setActivePin(initialPin);
     }
 }); 
+
 
 
 
