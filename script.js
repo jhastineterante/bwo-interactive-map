@@ -891,7 +891,7 @@ function showLocationModal(pinElement, locationId) {
     if (locationId === 'milwaukee') {
         // Milwaukee specific positioning
         modalX = pinX - 140; // Center on pin (250px modal width / 2)
-        modalY = pinY - 240;  // Position below pin
+        modalY = pinY - 260;  // Position below pin
     } else if (locationId === 'oconomowoc') {
         // Oconomowoc specific positioning  
         modalX = pinX - 140; // Center on pin
@@ -974,6 +974,7 @@ window.addEventListener('DOMContentLoaded', () => {
          setActivePin(initialPin);
     }
 }); 
+
 
 
 
