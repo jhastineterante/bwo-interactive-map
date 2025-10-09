@@ -460,23 +460,6 @@ const officeData = {
                 tier3: [],
                 tier4: []
             }
-        },
-        {
-            id: "kenosha-cox",
-            tabName: "Timothy A. Cox Agency",
-            group: "Timothy A. Cox Agency",
-            address: "7528 39th Ave<br>Kenosha, WI 53142",
-            phone: "(262) 558-4470",
-            website: "",
-            description: "",
-            agents: {
-                tier1: [
-                    { name: "Timothy Cox", title: "Agency Owner", agency: "Timothy A. Cox Agency", email: "timothyc@bwoinsurance.com", phone: "(262) 558-4470", photo: "TC" }
-                ],
-                tier2: [],
-                tier3: [],
-                tier4: []
-            }
         }
     ]
 },
@@ -974,6 +957,7 @@ window.addEventListener('DOMContentLoaded', () => {
          setActivePin(initialPin);
     }
 }); 
+
 
 
 
