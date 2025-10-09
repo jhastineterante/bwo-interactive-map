@@ -15,18 +15,23 @@ body {
 .map-section {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
     align-items: flex-start;
     margin-bottom: 3rem;
 }
 
 .left-column {
-    flex: 1.5; /* Takes up ~60% */
+    flex: 1.2; /* Takes up ~60% */
     min-width: 320px;
+    padding-top: 5rem;
+}
+@media (max-width: 768px) {
+    .left-column {
+        padding-top: 0rem;
+    }
 }
 
 .right-column {
-    flex: 1; /* Takes up ~40% */
+    flex: 1.2; /* Takes up ~40% */
     min-width: 320px;
     position: relative; /* Needed for modal positioning */
 }
@@ -38,6 +43,7 @@ h1.main-heading {
     color: #0a1835;
     line-height: 1.1;
     margin-bottom: 2rem;
+
 } 
 
 /* Info Box Styling */
@@ -85,6 +91,7 @@ h1.main-heading {
 .map-container svg {
     width: 100%;
     height: auto;
+
 }
 
 /* --- Pin Interactivity --- */
@@ -132,6 +139,7 @@ g.map-pin.multi-location .pin-indicator {
     r: 10; /* Make the indicator visible for multi-location pins */
 }
 
+/* --- Location Modal Styles --- */
 .location-modal {
     position: absolute;
     display: none; /* Hidden by default */
@@ -143,7 +151,6 @@ g.map-pin.multi-location .pin-indicator {
     z-index: 1000;
     width: 250px;
     transform: none !important;
-    /* Remove this line: transform: translate(-50%, -120%); */
 }
 
 .location-modal::after {
@@ -158,14 +165,17 @@ g.map-pin.multi-location .pin-indicator {
     border-right: 8px solid transparent;
     border-top: 8px solid #ffffff;
 }
+
 .location-modal.active {
     display: block;
 }
+
 .location-modal ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
+
 .location-modal li a {
     display: block;
     padding: 0.75rem 1rem;
@@ -175,9 +185,18 @@ g.map-pin.multi-location .pin-indicator {
     transition: background-color 0.2s ease;
     font-weight: 600;
 }
+
 .location-modal li a:hover {
     background-color: #f0f0f0;
 }
+
+/* --- Mobile: Hide arrow --- */
+@media (max-width: 768px) {
+    .location-modal::after {
+        display: none;
+    }
+}
+
 /* --- End of Modal Styles --- */
 
 /* --- Banner & Agent Section Styles --- */
@@ -360,6 +379,7 @@ g.map-pin.multi-location .pin-indicator {
     .banner h2 {
         font-size: 2rem;
     }
+
 }
 
 @media (max-width: 600px) {
@@ -370,7 +390,8 @@ g.map-pin.multi-location .pin-indicator {
         grid-template-columns: repeat(2, 1fr);
     }
     h1.main-heading {
-        font-size: 4rem;
+        font-size: 3.5rem;
+        text-align: center;
     }
     .banner h2 {
         font-size: 1.5rem;
@@ -388,4 +409,5 @@ g.map-pin.multi-location .pin-indicator {
         padding: 1.5rem;
         max-width: 550px; 
     }
+
 }
