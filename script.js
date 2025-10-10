@@ -11,7 +11,7 @@ const officeData = {
         agents: {
             // TIER 1: Owners (3 columns, large headshots)
             tier1: [
-                { name: "Tom Budzisz", title: "Owner/Licensed Agent", agency: "Budzisz Agency", email: "tom@bwoinsurance.com", phone: "(414) 501-1246", photo: "TB" },
+                { name: "Tom Budzisz", title: "Owner/Licensed Agent", agency: "Budzisz Agency", email: "tom@bwoinsurance.com", phone: "(414) 501-1246", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/d85c04b9-e8f8-4e96-a375-72d7b76b2964/45080.0.tom-budzisz_med.jpg" },
                 { name: "Greg Budzisz", title: "Owner/Licensed Agent", agency: "Budzisz Agency", email: "greg@bwoinsurance.com", phone: "(414) 501-1254", photo: "GB" },
                 { name: "Michael Osborne", title: "Owner/Licensed Agent", agency: "Osborne Agency", email: "michael@bwoinsurance.com", phone: "(414) 501-1245", photo: "MO" }
             ],
@@ -957,6 +957,7 @@ window.addEventListener('DOMContentLoaded', () => {
          setActivePin(initialPin);
     }
 }); 
+
 
 
 
