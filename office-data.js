@@ -404,6 +404,22 @@ const officeData = {
             tier4: []
         }
     },
+        "brown-deer": {
+        name: "BROWN DEER",
+        group: "Village Insurance - Brown Deer",
+        address: "6051 W Brown Deer Rd. Suite 207<br>Brown Deer, WI 53223",
+        phone: "(414) 476-2560",
+        website: "",
+        description: "",
+        agents: {
+            tier1: [
+                { name: "Bill Protz", title: "Agency Owner", agency: "Village Insurance - Brown Deer", email: "villageinsurance@msn.com", phone: "(414) 476-2560", photo: "BP" }
+            ],
+            tier2: [],
+            tier3: [],
+            tier4: []
+        }
+    },
     "kenosha": {
         name: "KENOSHA",
         hasMultipleLocations: true,
@@ -458,6 +474,23 @@ const officeData = {
                     tier2: [
                         { name: "Ana Murguia", title: "Licensed Agent", agency: "Neave Accounting and Insurance", email: "Ana@neaveaccounting.com", phone: "(262) 656-9677", photo: "AM" }
                     ],
+                    tier3: [],
+                    tier4: []
+                }
+            },
+            {
+                id: "kenosha-cox",
+                tabName: "Timothy A. Cox Agency",
+                group: "Timothy A. Cox Agency",
+                address: "7528 39th Ave<br>Kenosha, WI 53142",
+                phone: "(262) 558-4470",
+                website: "",
+                description: "",
+                agents: {
+                    tier1: [
+                        { name: "Timothy Cox", title: "Agency Owner", agency: "Timothy A. Cox Agency", email: "timothyc@bwoinsurance.com", phone: "(262) 558-4470", photo: "TC" }
+                    ],
+                    tier2: [],
                     tier3: [],
                     tier4: []
                 }
@@ -588,6 +621,23 @@ const officeData = {
                         { name: "Luis Islas", title: "Transaction Specialist", agency: "American One Insurance Agency LLC", email: "Infoamericanone@bwoinsurance.com", phone: "(414) 539-4036", photo: "LI" },
                         { name: "Maria Lopez", title: "Executive Assistant", agency: "American One Insurance Agency LLC", email: "americanone@bwoinsurance.com", phone: "(414) 539-4036", photo: "ML" }
                     ],
+                    tier3: [],
+                    tier4: []
+                }
+            },
+            {
+                id: "milwaukee-thorning-gorman",
+                tabName: "Thorning-Gorman Agency",
+                group: "Thorning-Gorman Agency",
+                address: "759 N Milwaukee St, Suite 415<br>Milwaukee, WI 53202",
+                phone: "(414) 276-0444",
+                website: "",
+                description: "",
+                agents: {
+                    tier1: [
+                        { name: "Bill Gorman", title: "Agency Owner", agency: "Thorning-Gorman Agency", email: "wgorman@tga.biz", phone: "(414) 276-0444", photo: "BG" }
+                    ],
+                    tier2: [],
                     tier3: [],
                     tier4: []
                 }
