@@ -2,8 +2,11 @@
 function createAgentHTML(agent) {
     const emailLink = agent.email ? `<p class="agent-email"><a href="mailto:${agent.email}">${agent.email}</a></p>` : '';
     const phoneLink = agent.phone ? `<p class="agent-phone"><span onclick="window.location.href='tel:${agent.phone}'" style="cursor: pointer; color: inherit;">${agent.phone}</span></p>` : '';
-    const headshotUrl = agent.photo.startsWith('http') ? agent.photo : `https://placehold.co/200x200/0a1835/ffffff?text=${agent.photo}`;
-
+    const headshotUrl = agent.photo.startsWith('http') 
+    ? agent.photo 
+    : agent.photo.includes('.') 
+        ? `./images/${agent.photo}`
+        : `https://placehold.co/200x200/0a1835/ffffff?text=${agent.photo}`;
     return `
         <div class="agent-profile">
             <img class="agent-headshot" src="${headshotUrl}" alt="${agent.name}">
@@ -63,6 +66,50 @@ function renderAgentsForLocation(locationId, subLocationIndex = 0) {
     });
 }
 
+// Add this new function to create city name labels
+function addCityLabels() {
+    const allPins = document.querySelectorAll('g.map-pin');
+    
+    allPins.forEach(pin => {
+        const locationId = pin.id;
+        const locationData = officeData[locationId];
+        
+        if (!locationData) return;
+        
+        // Get the pin's circle element to position the label
+        const pinCircle = pin.querySelector('.pin-background');
+        if (!pinCircle) return;
+        
+        const cx = parseFloat(pinCircle.getAttribute('cx'));
+        const cy = parseFloat(pinCircle.getAttribute('cy'));
+        
+        // Create text element for the label
+        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        label.classList.add('pin-label');
+        label.setAttribute('x', cx);
+        label.setAttribute('y', cy - 30); // Position above the pin (adjust this value as needed)
+        label.setAttribute('text-anchor', 'middle');
+        label.textContent = locationData.name;
+        
+        // Insert label as first child so it appears behind the pin
+        pin.insertBefore(label, pin.firstChild);
+    });
+}
+
+// Add this function after your addCityLabels function
+function setupPinHoverEffect() {
+    const allPins = document.querySelectorAll('g.map-pin');
+    
+    allPins.forEach(pin => {
+        pin.addEventListener('mouseenter', () => {
+            // Move this pin to the end of its parent to bring it to front
+            const parent = pin.parentNode;
+            if (parent) {
+                parent.appendChild(pin);
+            }
+        });
+    });
+}
 
 // Function to update the main info box
 function updateInfoBox(locationId, subLocationIndex = 0) {
@@ -246,7 +293,7 @@ function showLocationModal(pinElement, locationId) {
     } else if (locationId === 'kenosha') {
         // Default positioning for any future multi-location pins
         modalX = pinX - 140;
-        modalY = pinY - 240;
+        modalY = pinY - 270;
     }
     
     // Basic boundary checking - keep within map
@@ -277,6 +324,12 @@ function showLocationModal(pinElement, locationId) {
 
 // Main function to run after the page loads
 window.addEventListener('DOMContentLoaded', () => {
+    
+    // Add city labels first
+    addCityLabels();
+
+    // Setup hover effect for z-index
+    setupPinHoverEffect();
     
     const allPins = document.querySelectorAll('g.map-pin');
     
@@ -320,16 +373,4 @@ window.addEventListener('DOMContentLoaded', () => {
     if (initialPin) {
          setActivePin(initialPin);
     }
-}); 
-
-
-
-
-
-
-
-
-
-
-
-
+});
