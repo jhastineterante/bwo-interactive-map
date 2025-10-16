@@ -3,10 +3,7 @@ function createAgentHTML(agent) {
     const emailLink = agent.email ? `<p class="agent-email"><a href="mailto:${agent.email}">${agent.email}</a></p>` : '';
     const phoneLink = agent.phone ? `<p class="agent-phone"><span onclick="window.location.href='tel:${agent.phone}'" style="cursor: pointer; color: inherit;">${agent.phone}</span></p>` : '';
     const headshotUrl = agent.photo.startsWith('http') 
-    ? agent.photo 
-    : agent.photo.includes('.') 
-        ? `./images/${agent.photo}`
-        : `https://placehold.co/200x200/0a1835/ffffff?text=${agent.photo}`;
+    const headshotUrl = agent.photo.startsWith('http') ? agent.photo : `https://placehold.co/200x200/0a1835/ffffff?text=${agent.photo}`;;
     return `
         <div class="agent-profile">
             <img class="agent-headshot" src="${headshotUrl}" alt="${agent.name}">
@@ -374,3 +371,4 @@ window.addEventListener('DOMContentLoaded', () => {
          setActivePin(initialPin);
     }
 });
+
