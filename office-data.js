@@ -216,23 +216,6 @@ const officeData = {
             tier4: []
         }
     },
-    "waupun": {
-        name: "WAUPUN",
-        group: "Rock River Insurance, LLC",
-        address: "Works from home",
-        phone: "(920) 345-2266",
-        website: "http://www.rockriverins.com/",
-        description: "Rock River Insurance is an independent insurance agency serving the Waupun area for personal and commercial insurance.",
-        agents: {
-            tier1: [
-                { name: "Ryan Mulder", title: "Agency Owner", agency: "Rock River Insurance, LLC", email: "rmulder@rockriverins.com", phone: "(920) 345-2266", photo: "RM" },
-                { name: "Kathy Mulder", title: "Agency Owner", agency: "Rock River Insurance, LLC", email: "kathym@bwoinsurance.com", phone: "(920) 960-4458", photo: "KM" }
-            ],
-            tier2: [],
-            tier3: [],
-            tier4: []
-        }
-    },
     "west-allis": {
         name: "WEST ALLIS",
         group: "T1 Insurance Agency",
@@ -420,6 +403,44 @@ const officeData = {
             tier4: []
         }
     },
+    "waupun": {
+    name: "Waupun",
+    hasMultipleLocations: true,
+    activeLocation: 0,
+    locations: [
+        {
+            tabName: "Rock River Insurance, LLC",
+            group: "Waupun Area",
+            address: "Works from home<br>Waupun, WI",
+            phone: "920-345-2266",
+            website: "http://www.rockriverins.com/",
+            description: "Rock River Insurance is an independent insurance agency serving the Waupun area for personal and commercial insurance.",
+            agents: {
+                tier1: [
+                    { name: "Ryan Mulder", title: "Agency Owner", agency: "Rock River Insurance, LLC", email: "rmulder@rockriverins.com", phone: "920-345-2266", photo: "RM" }
+                ],
+                tier2: [],
+                tier3: [],
+                tier4: []
+            }
+        },
+        {
+            tabName: "Oakwood Insurance Agency, LLC",
+            group: "Waupun Area",
+            address: "Works from home<br>Waupun, WI",
+            phone: "920-960-4458",
+            description: "",
+            agents: {
+                tier1: [
+                    { name: "Kathy Mulder", title: "Agency Owner", agency: "Oakwood Insurance Agency, LLC", email: "kathym@bwoinsurance.com", phone: "920-960-4458", photo: "KM" }
+                ],
+                tier2: [],
+                tier3: [],
+                tier4: []
+            }
+        }
+    ]
+},
     "kenosha": {
         name: "KENOSHA",
         hasMultipleLocations: true,
@@ -684,6 +705,7 @@ const officeData = {
         }
     }
 };
+
 
 
 
