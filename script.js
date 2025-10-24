@@ -291,7 +291,10 @@ function showLocationModal(pinElement, locationId) {
         // Default positioning for any future multi-location pins
         modalX = pinX - 140;
         modalY = pinY - 270;
-    }
+    } else if (locationId === 'waupun') {
+    modalX = pinX - 140;
+    modalY = pinY - 180; // Adjust as needed after testing
+}
     
     // Basic boundary checking - keep within map
     const mapRect = mapContainer.getBoundingClientRect();
@@ -371,6 +374,7 @@ window.addEventListener('DOMContentLoaded', () => {
          setActivePin(initialPin);
     }
 });
+
 
 
 
