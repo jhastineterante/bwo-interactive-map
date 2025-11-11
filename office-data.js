@@ -18,9 +18,9 @@ const officeData = {
             ],
             // TIER 2: Directors (3 columns, medium headshots)
             tier2: [
-                { name: "Bethany Debroux", title: "Director of Operations", agency: "BWO Insurance", email: "bethanyd@bwoinsurance.com", phone: "(414) 501-1238", photo: "BD" },
-                { name: "Teresa LaCoursiere", title: "Accounting & Financial Manager", agency: "BWO Insurance", email: "teresa@bwoinsurance.com", phone: "(414) 501-1261", photo: "TL" },
-                { name: "Jessica Baeten", title: "Accounting & Finance Specialist", agency: "BWO Insurance", email: "jessica@bwoinsurance.com", phone: "(414) 501-1282", photo: "JB" }
+                { name: "Bethany Debroux", title: "Director of Operations", agency: "BWO Insurance", email: "bethanyd@bwoinsurance.com", phone: "(414) 501-1238", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/8fc0fa3d-8933-4396-b2f1-6f57a6f03bcb/DeBroux_Bethany.jpg?content-type=image%2Fjpeg" },
+                { name: "Teresa LaCoursiere", title: "Accounting & Financial Manager", agency: "BWO Insurance", email: "teresa@bwoinsurance.com", phone: "(414) 501-1261", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/5b205272-fd64-4786-b14f-00750c8600a5/LaCoursiere_Teresa.jpg?content-type=image%2Fjpeg" },
+                { name: "Jessica Baeten", title: "Accounting & Finance Specialist", agency: "BWO Insurance", email: "jessica@bwoinsurance.com", phone: "(414) 501-1282", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/4ea47f8a-7898-4d8f-9dd3-2147e3a5f274/Baeten_Jessica.jpg?content-type=image%2Fjpeg" }
             ],
             // TIER 3: Licensed Agents (5 columns, small headshots)
             tier3: [
@@ -705,6 +705,7 @@ const officeData = {
         }
     }
 };
+
 
 
 
