@@ -12,9 +12,9 @@ const officeData = {
         agents: {
             // TIER 1: Owners (3 columns, large headshots)
             tier1: [
-                { name: "Tom Budzisz", title: "Owner/Licensed Agent", agency: "Budzisz Agency", email: "tom@bwoinsurance.com", phone: "(414) 501-1246", photo: "TB" },
+                { name: "Tom Budzisz", title: "Owner/Licensed Agent", agency: "Budzisz Agency", email: "tom@bwoinsurance.com", phone: "(414) 501-1246", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/d3611ba5-2389-48d0-944e-b16fefc2bdf1/Budzisz_Tom+copy.jpg?content-type=image%2Fjpeg" },
                 { name: "Greg Budzisz", title: "Owner/Licensed Agent", agency: "Budzisz Agency", email: "greg@bwoinsurance.com", phone: "(414) 501-1254", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/6a768d6c-2393-49a2-a7dd-e9c782b128c3/Budzisz_Greg.jpg?content-type=image%2Fjpeg" },
-                { name: "Michael Osborne", title: "Owner/Licensed Agent", agency: "Osborne Agency", email: "michael@bwoinsurance.com", phone: "(414) 501-1245", photo: "MO" }
+                { name: "Michael Osborne", title: "Owner/Licensed Agent", agency: "Osborne Agency", email: "michael@bwoinsurance.com", phone: "(414) 501-1245", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/0af7aac1-e0bd-4c0b-aec1-b78cbdb30d43/Osborne_Michael+copy.jpg?content-type=image%2Fjpeg" }
             ],
             // TIER 2: Directors (3 columns, medium headshots)
             tier2: [
@@ -705,6 +705,7 @@ const officeData = {
         }
     }
 };
+
 
 
 
