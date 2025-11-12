@@ -28,8 +28,7 @@ const officeData = {
                 { name: "Alicia Drum", title: "Licensed Agent", agency: "Budzisz Agency", email: "aliciad@bwoinsurance.com", phone: "(414) 501-1256", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/38456363-7c79-4297-8639-e000ebd9880c/Drum_Alicia.jpg?content-type=image%2Fjpeg" },
                 { name: "Amy Stralow", title: "Licensed Agent", agency: "Budzisz Agency", email: "amys@bwoinsurance.com", phone: "(414) 856-2114", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/968b6ee9-b155-4b61-9ff6-53407d286137/Stralow_Amy.jpg?content-type=image%2Fjpeg" },
                 { name: "Chelsea Malueg", title: "Licensed Agent", agency: "Budzisz Agency", email: "chelsea@bwoinsurance.com", phone: "(920) 373-7214", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/8ef3ab56-3d3c-431d-be72-9ec6b00f8eab/Malueg_Chelsea+copy.jpg?content-type=image%2Fjpeg" },
-                { name: "Matt Rebek", title: "Licensed Agent", agency: "Budzisz Agency", email: "matt@bwoinsurance.com", phone: "(414) 501-1253", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/17086256-d88b-450f-9712-b5c24faa3a77/Rebek_Matt.jpg?content-type=image%2Fjpeg
-" },
+                { name: "Matt Rebek", title: "Licensed Agent", agency: "Budzisz Agency", email: "matt@bwoinsurance.com", phone: "(414) 501-1253", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/17086256-d88b-450f-9712-b5c24faa3a77/Rebek_Matt.jpg?content-type=image%2Fjpeg" },
                 { name: "Mike Vande Vusse", title: "Licensed Agent", agency: "Budzisz Agency", email: "mikev@bwoinsurance.com", phone: "(414) 501-1257", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/f304c9c8-aed9-4ea2-99ab-74e2f0f7861d/Vande-Vusse_Mike.jpg?content-type=image%2Fjpeg" },
                 { name: "Anna Jacobs", title: "Licensed Agent", agency: "Anna Jacobs Agency", email: "anna@bwoinsurance.com", phone: "(414) 501-1278", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/79fa5fc5-87bc-441e-a1e6-f7f26044b169/Jacobs_Anna.jpg?content-type=image%2Fjpeg" },
                 { name: "Joe Kossow", title: "Licensed Agent", agency: "Kossow Agency", email: "joe@bwoinsurance.com", phone: "(414) 856-2107", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/b06f1505-0de9-4d99-be98-1fbdaf865800/Kossow_Joe.jpg?content-type=image%2Fjpeg" },
@@ -43,11 +42,9 @@ const officeData = {
                 { name: "Jenny Klein", title: "Quality & Training Specialist", agency: "BWO Insurance", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/ec70f2be-2105-4332-ad68-5dab7d0f9035/Klein_Jenny.jpg?content-type=image%2Fjpeg" },
                 { name: "Jordyn Hunt", title: "Training & Audit Specialist", agency: "BWO Insurance", photo: "JH" },
                 { name: "Victoria (Vicki) Leuze", title: "Account Manager", agency: "BWO Insurance", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/090cbef7-631b-4ed2-9bd7-0d91f06ef60b/Leuze_Vicki.jpg?content-type=image%2Fjpeg" },
-                { name: "Andrea Suheski", title: "Account Manager", agency: "BWO Insurance", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/fb123231-d79a-484f-a645-17eb5b3f20ca/Susheski_Andrea.jpg?content-type=image%2Fjpeg
-" },
+                { name: "Andrea Suheski", title: "Account Manager", agency: "BWO Insurance", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/fb123231-d79a-484f-a645-17eb5b3f20ca/Susheski_Andrea.jpg?content-type=image%2Fjpeg" },
                 { name: "Bria Lopez", title: "Account Manager", agency: "BWO Insurance", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/0e957fa5-3268-4c08-a517-b3825082c240/Lopez_Bria.jpg?content-type=image%2Fjpeg" },
-                { name: "Carolyn Schubert", title: "Account Manager", agency: "BWO Insurance", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/584c15c3-ee5c-4473-9034-510b4190f6e2/Schubert_Carolyn.jpg?content-type=image%2Fjpeg
-" },
+                { name: "Carolyn Schubert", title: "Account Manager", agency: "BWO Insurance", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/584c15c3-ee5c-4473-9034-510b4190f6e2/Schubert_Carolyn.jpg?content-type=image%2Fjpeg" },
                 { name: "Evan Sell", title: "Account Manager", agency: "BWO Insurance", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/751a1b72-96af-471a-8100-35958d9d493d/Sell_Evan.jpg?content-type=image%2Fjpeg" },
                 { name: "Peter Opie", title: "Commercial Lines Account Manager", agency: "BWO Insurance", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/028955f8-7636-4b54-a62b-34279238727e/Opie_Peter.jpg?content-type=image%2Fjpeg" },
                 { name: "David Oas", title: "Commercial Lines Team Lead", agency: "BWO Insurance", photo: "https://images.squarespace-cdn.com/content/689b9e85741b79599575d482/8a22959f-a82e-477a-a5fe-9b49820d3a33/Oas_Dave.jpg?content-type=image%2Fjpeg" },
@@ -708,6 +705,7 @@ const officeData = {
         }
     }
 };
+
 
 
 
