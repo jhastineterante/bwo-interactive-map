@@ -372,7 +372,7 @@ const officeData = {
     "racine": {
         name: "RACINE",
         group: "Marzins - Mario Martinez Agency",
-        address: "3716 Durand Ave<br>Racine, WI 53405",
+        address: "3201 Washington Ave<br>Racine, WI 53405",
         phone: "(262) 456-0321",
         website: "https://www.marzins.com/",
         description: "At Marz Insurance, we believe that insurance should feel personal, not complicated. We're your neighbors, your friends, and your trusted team — proudly serving Racine families and businesses with friendly, bilingual insurance services since 1987. Our local, independent agency makes it easy for you to protect what matters most: your home, your car, your business, and your health. Whether you prefer English or Spanish, you'll always find clear answers, competitive rates, and people who truly care.",
@@ -705,6 +705,7 @@ const officeData = {
         }
     }
 };
+
 
 
 
