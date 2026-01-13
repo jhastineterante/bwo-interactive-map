@@ -602,7 +602,7 @@ const officeData = {
                     ],
                     tier2: [
                         { name: "Kritzia Morales-Vega", title: "Licensed Agent", agency: "Reed Street Insurance Agency", email: "kritzia@reedstreetins.com", phone: "(414) 277-0414", photo: "KM" },
-                        { name: "Tiffany Knight", title: "Licensed Agent", agency: "Reed Street Insurance Agency", email: "tiffany@reedstreetins.com", phone: "(414) 277-0414", photo: "TK" }
+        
                     ],
                     tier3: [],
                     tier4: []
@@ -705,6 +705,7 @@ const officeData = {
         }
     }
 };
+
 
 
 
