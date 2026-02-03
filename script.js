@@ -323,58 +323,87 @@ function showLocationModal(pinElement, locationId) {
     });
 }
 
-// Main function to run after the page loads
-window.addEventListener('DOMContentLoaded', () => {
-    
-    // Add city labels first
-    addCityLabels();
+function initBwoInteractiveMap() {
+  // Ensure data exists
+  if (typeof officeData !== 'object') {
+    setTimeout(initBwoInteractiveMap, 150);
+    return;
+  }
 
-    // Setup hover effect for z-index
-    setupPinHoverEffect();
-    
-    const allPins = document.querySelectorAll('g.map-pin');
-    
-    function handlePinClick(pinElement) {
-        const locationId = pinElement.id;
-        const data = officeData[locationId];
+  // Ensure pins exist (Squarespace can render the SVG after DOMContentLoaded)
+  const allPins = document.querySelectorAll('g.map-pin');
+  if (!allPins.length) {
+    setTimeout(initBwoInteractiveMap, 150);
+    return;
+  }
 
-        hideLocationModal(); // Hide any open modals first
+  // Prevent double-binding
+  if (window.__bwoMapBound) return;
+  window.__bwoMapBound = true;
 
-        if (data.hasMultipleLocations) {
-            showLocationModal(pinElement, locationId);
-        } else {
-            updateInfoBox(locationId);
-            setActivePin(pinElement);
-        }
+  // Add city labels first
+  addCityLabels();
+
+  // Setup hover effect for z-index
+  setupPinHoverEffect();
+
+  function handlePinClick(pinElement) {
+    const locationId = pinElement.id;
+    const data = officeData[locationId];
+    if (!data) return;
+
+    hideLocationModal(); // Hide any open modals first
+
+    if (data.hasMultipleLocations) {
+      showLocationModal(pinElement, locationId);
+    } else {
+      updateInfoBox(locationId);
+      setActivePin(pinElement);
     }
+  }
 
-    allPins.forEach(pin => {
-        pin.addEventListener('click', (e) => {
-            e.stopPropagation();
-            handlePinClick(pin);
-        });
-        
-        // Add class to multi-location pins for styling
-        if (officeData[pin.id] && officeData[pin.id].hasMultipleLocations) {
-            pin.classList.add('multi-location');
-        }
+  allPins.forEach(pin => {
+    // Make it obvious it’s clickable
+    pin.style.cursor = 'pointer';
+
+    // Extra safety: don't rebind if Squarespace re-renders
+    if (pin.dataset.bwoBound === '1') return;
+    pin.dataset.bwoBound = '1';
+
+    pin.addEventListener('click', (e) => {
+      e.stopPropagation();
+      handlePinClick(pin);
     });
 
-    // Close modal if clicking anywhere else on the page
-    document.addEventListener('click', (e) => {
-        const modal = document.getElementById('location-modal');
-        if (modal.classList.contains('active') && !modal.contains(e.target)) {
-            hideLocationModal();
-        }
-    });
-
-    // Initialize with a default location
-    updateInfoBox('oak-creek');
-    const initialPin = document.getElementById('oak-creek');
-    if (initialPin) {
-         setActivePin(initialPin);
+    // Add class to multi-location pins for styling
+    if (officeData[pin.id] && officeData[pin.id].hasMultipleLocations) {
+      pin.classList.add('multi-location');
     }
-});
+  });
+
+  // Close modal if clicking anywhere else on the page
+  document.addEventListener('click', (e) => {
+    const modal = document.getElementById('location-modal');
+    if (modal && modal.classList.contains('active') && !modal.contains(e.target)) {
+      hideLocationModal();
+    }
+  });
+
+  // Initialize with a default location
+  updateInfoBox('oak-creek');
+  const initialPin = document.getElementById('oak-creek');
+  if (initialPin) {
+    setActivePin(initialPin);
+  }
+}
+
+// Run safely regardless of whether DOMContentLoaded already happened
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initBwoInteractiveMap);
+} else {
+  initBwoInteractiveMap();
+}
+
 
 
 
