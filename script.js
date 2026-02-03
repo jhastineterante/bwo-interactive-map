@@ -1,4 +1,5 @@
 // This function dynamically builds the HTML for a single agent profile
+// bwo map script version: 2026-02-03
 function createAgentHTML(agent) {
     const emailLink = agent.email ? `<p class="agent-email"><a href="mailto:${agent.email}">${agent.email}</a></p>` : '';
     const phoneLink = agent.phone ? `<p class="agent-phone"><span onclick="window.location.href='tel:${agent.phone}'" style="cursor: pointer; color: inherit;">${agent.phone}</span></p>` : '';
@@ -374,6 +375,7 @@ window.addEventListener('DOMContentLoaded', () => {
          setActivePin(initialPin);
     }
 });
+
 
 
 
