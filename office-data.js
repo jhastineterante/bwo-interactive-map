@@ -678,7 +678,8 @@ const officeData = {
             tier2: [
                 { name: "Greg Dauffenbach", title: "Commercial Lines Account Manager", agency: "Alpine Insurance Agency", email: "gregd@bwoinsurance.com", phone: "262-642-9801", photo: "GD" },
                 { name: "Michelle Baker", title: "Personal Lines Account Manager", agency: "Alpine Insurance Agency", email: "michelleb@bwoinsurance.com", phone: "262-642-9801", photo: "MB" },
-            tier3: [],
+            ],
+                tier3: [],
             tier4: []
         }
     },
