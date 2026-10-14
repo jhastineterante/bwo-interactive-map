@@ -216,24 +216,6 @@ const officeData = {
             tier4: []
         }
     },
-    "west-allis": {
-        name: "WEST ALLIS",
-        group: "T1 Insurance Agency",
-        address: "10617 W Oklahoma Ave, Suite U4<br>West Allis, WI 53227",
-        phone: "(414) 279-5495",
-        website: "",
-        description: "BWO Insurance T1 Agency provides insurance including bi-lingual services for Personal and Commercial products to include home, auto and recreational vehicles, commercial contractor, auto and business owners.",
-        agents: {
-            tier1: [
-                { name: "David Scholfield", title: "Agency Owner", agency: "T1 Insurance Agency", email: "davids@bwoinsurance.com", phone: "(414) 279-5495", photo: "DS" }
-            ],
-            tier2: [
-                { name: "Alejandra Corona", title: "Licensed Agent", agency: "T1 Insurance Agency", email: "alejandrac@bwoinsurance.com", phone: "(414) 279-5495", photo: "AC" }
-            ],
-            tier3: [],
-            tier4: []
-        }
-    },
     "schofield": {
         name: "SCHOFIELD",
         group: "Schofield Insurance Agency",
@@ -661,6 +643,25 @@ const officeData = {
                     tier3: [],
                     tier4: []
                 }
+            },
+            {
+                id: "milwaukee-t1",
+                tabName: "T1 Insurance Agency",
+                group: "T1 Insurance Agency",
+                address: "5232 W Oklahoma Ave, Ste 220<br>Milwaukee, WI 53219",
+                phone: "(414) 279-5495",
+                website: "",
+                description: "BWO Insurance T1 Agency provides insurance including bi-lingual services for Personal and Commercial products to include home, auto and recreational vehicles, commercial contractor, auto and business owners.",
+                agents: {
+                    tier1: [
+                        { name: "David Schofield", title: "Agency Owner", agency: "T1 Insurance Agency", email: "davids@bwoinsurance.com", phone: "(414) 279-5495", photo: "DS" }
+                    ],
+                    tier2: [
+                        { name: "Alejandra Corona", title: "Licensed Agent", agency: "T1 Insurance Agency", email: "alejandrac@bwoinsurance.com", phone: "(414) 279-5495", photo: "AC" }
+                    ],
+                    tier3: [],
+                    tier4: []
+                }
             }
         ]
     },
@@ -703,20 +704,3 @@ const officeData = {
         }
     }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
